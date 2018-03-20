@@ -1,0 +1,50 @@
+# depslib dependency file v1.0
+1520397971 source:c:\users\somebody\desktop\osproject\os\m32.cpp
+	<iostream>
+	<sstream>
+	<string>
+	<math.h>
+	"m32.h"
+
+1520398263 c:\users\somebody\desktop\osproject\os\m32.h
+	<bitset>
+	<string>
+
+1519622173 source:c:\users\somebody\desktop\osproject\os\cpu.cpp
+	<iostream>
+	<string>
+	<bitset>
+	"CPU.h"
+	"m32.h"
+
+1519473170 c:\users\somebody\desktop\osproject\os\cpu.h
+	<stdint.h>
+	"m32.h"
+
+1519366684 c:\users\somebody\desktop\osproject\os\m32.cpp
+	<iostream>
+	<sstream>
+	<string>
+	"m32.h"
+
+1519473295 source:c:\users\somebody\desktop\osproject\os\tester.cpp
+	<iostream>
+	"CPU.h"
+	"m32.h"
+
+1519347489 c:\users\somebody\desktop\osproject\os\cpu.cpp
+	<iostream>
+	<string>
+	"CPU.h"
+
+1520398325 source:c:\users\somebody\desktop\osproject\os\ram.cpp
+	<iostream>
+	<sstream>
+	<string>
+	<math.h>
+	"RAM.h"
+
+1520398263 c:\users\somebody\desktop\osproject\os\ram.h
+	<bitset>
+	<string>
+
