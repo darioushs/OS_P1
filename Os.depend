@@ -63,14 +63,14 @@
 	<bitset>
 	<string>
 
-1520402259 source:c:\users\somebody\documents\github\os_p1\hdd.cpp
+1521670993 source:c:\users\somebody\documents\github\os_p1\hdd.cpp
 	<iostream>
 	<sstream>
 	<string>
 	<math.h>
 	"HDD.h"
 
-1521596956 c:\users\somebody\documents\github\os_p1\hdd.h
+1521670637 c:\users\somebody\documents\github\os_p1\hdd.h
 	<bitset>
 	<string>
 	"m32.h"
@@ -94,7 +94,7 @@
 	<math.h>
 	"RAM.h"
 
-1521596134 c:\users\somebody\documents\github\os_p1\ram.h
+1521670529 c:\users\somebody\documents\github\os_p1\ram.h
 	<bitset>
 	<string>
 	"m32.h"
