@@ -48,3 +48,62 @@
 	<bitset>
 	<string>
 
+1519625773 source:c:\users\somebody\documents\github\os_p1\cpu.cpp
+	<iostream>
+	<string>
+	<bitset>
+	"CPU.h"
+	"m32.h"
+
+1519476770 c:\users\somebody\documents\github\os_p1\cpu.h
+	<stdint.h>
+	"m32.h"
+
+1520401863 c:\users\somebody\documents\github\os_p1\m32.h
+	<bitset>
+	<string>
+
+1520402259 source:c:\users\somebody\documents\github\os_p1\hdd.cpp
+	<iostream>
+	<sstream>
+	<string>
+	<math.h>
+	"HDD.h"
+
+1521596956 c:\users\somebody\documents\github\os_p1\hdd.h
+	<bitset>
+	<string>
+	"m32.h"
+
+1520401571 source:c:\users\somebody\documents\github\os_p1\m32.cpp
+	<iostream>
+	<sstream>
+	<string>
+	<math.h>
+	"m32.h"
+
+1519476895 source:c:\users\somebody\documents\github\os_p1\tester.cpp
+	<iostream>
+	"CPU.h"
+	"m32.h"
+
+1521596282 source:c:\users\somebody\documents\github\os_p1\ram.cpp
+	<iostream>
+	<sstream>
+	<string>
+	<math.h>
+	"RAM.h"
+
+1521596134 c:\users\somebody\documents\github\os_p1\ram.h
+	<bitset>
+	<string>
+	"m32.h"
+
+1520402331 source:c:\users\somebody\documents\github\os_p1\src\motherboard.cpp
+	"Motherboard.h"
+
+1520402539 c:\users\somebody\documents\github\os_p1\include\motherboard.h
+	"../CPU.h"
+	"../HDD.h"
+	"../RAM.h"
+

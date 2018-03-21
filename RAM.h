@@ -1,5 +1,6 @@
 #include <bitset>
 #include <string>
+#include "m32.h"
 
 using namespace std;
 
@@ -8,22 +9,11 @@ using namespace std;
 
 class RAM {
 private:
-    bitset<1024> memory;
+    m32 memory[1024];
 
 public:
 	RAM() {}
-	RAM(int initialValue) {
-		SetHex(initialValue);
-	}
-	void SetHex(int hex);
-	int GetBit(int index);
-	int GetDecimal(int lowerBit, int higherBit);
-	string ToString();
-	RAM operator+(RAM other);
-	RAM operator-(RAM other);
-	RAM operator*(RAM other);
-	RAM operator/(RAM other);
-	RAM operator=(RAM other);
+	m32* getMemory();
 };
 
 #endif

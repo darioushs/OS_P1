@@ -1,5 +1,6 @@
 #include <bitset>
 #include <string>
+#include "m32.h"
 
 using namespace std;
 
@@ -8,22 +9,11 @@ using namespace std;
 
 class HDD {
 private:
-    bitset<2048> memory;
+    m32 memory[2018];
 
 public:
 	HDD() {}
-	HDD(int initialValue) {
-		SetHex(initialValue);
-	}
-	void SetHex(int hex);
-	int GetBit(int index);
-	int GetDecimal(int lowerBit, int higherBit);
-	string ToString();
-	HDD operator+(HDD other);
-	HDD operator-(HDD other);
-	HDD operator*(HDD other);
-	HDD operator/(HDD other);
-	HDD operator=(HDD other);
+	m32* getMemory();
 };
 
 #endif
