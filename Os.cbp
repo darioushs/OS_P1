@@ -37,6 +37,8 @@
 		<Unit filename="CPU.h" />
 		<Unit filename="HDD.cpp" />
 		<Unit filename="HDD.h" />
+		<Unit filename="PCB.cpp" />
+		<Unit filename="PCB.h" />
 		<Unit filename="RAM.cpp" />
 		<Unit filename="RAM.h" />
 		<Unit filename="include/Motherboard.h" />

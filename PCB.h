@@ -13,5 +13,3 @@ public:
 	int startDisk, endDisk, startRam, endRam;
 	bool isInRam;
 };
-
-
