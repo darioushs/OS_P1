@@ -2,54 +2,34 @@
 <CodeBlocks_layout_file>
 	<FileVersion major="1" minor="0" />
 	<ActiveTarget name="Debug" />
-	<File name="HDD.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src\Loader.cpp" open="1" top="1" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="1231" topLine="39" />
+			<Cursor1 position="1219" topLine="2" />
 		</Cursor>
 	</File>
-	<File name="include\Motherboard.h" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="include\IScheduler.h" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="183" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="include\Motherboard.h" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="292" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="RAM.h" open="1" top="1" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src\FCFS_Scheduler.cpp" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="229" topLine="0" />
+			<Cursor1 position="166" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="tester.cpp" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src\Motherboard.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="366" topLine="0" />
+			<Cursor1 position="118" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="m32.h" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="include\FCFS_Scheduler.h" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="134" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="RAM.cpp" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="306" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="CPU.cpp" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1543" topLine="37" />
-		</Cursor>
-	</File>
-	<File name="CPU.h" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1066" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="m32.cpp" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="303" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="HDD.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="105" topLine="0" />
+			<Cursor1 position="204" topLine="0" />
 		</Cursor>
 	</File>
 </CodeBlocks_layout_file>

@@ -87,11 +87,12 @@
 	"CPU.h"
 	"m32.h"
 
-1521596282 source:c:\users\somebody\documents\github\os_p1\ram.cpp
+1521700227 source:c:\users\somebody\documents\github\os_p1\ram.cpp
 	<iostream>
 	<sstream>
 	<string>
 	<math.h>
+	<assert.h>
 	"RAM.h"
 
 1521670529 c:\users\somebody\documents\github\os_p1\ram.h
@@ -106,4 +107,110 @@
 	"../CPU.h"
 	"../HDD.h"
 	"../RAM.h"
+
+1521700110 source:c:\users\somebody\documents\github\os_p1\loader.cpp
+	<iostream>
+	<string>
+	"Loader.h"
+	"m32.h"
+	"PCB.h"
+
+1521700080 c:\users\somebody\documents\github\os_p1\loader.h
+	<iostream>
+	"m32.h"
+	"PCB.h"
+
+1521700100 c:\users\somebody\documents\github\os_p1\pcb.h
+	<string>
+	<vector>
+	<iostream>
+	"m32.h"
+
+1521700123 source:c:\users\somebody\documents\github\os_p1\pcb.cpp
+	<iostream>
+	<string>
+	<array>
+	<vector>
+	"PCB.h"
+
+1519625773 source:c:\users\somebody\documents\github\os_p1\src\cpu.cpp
+	<iostream>
+	<string>
+	<bitset>
+	"CPU.h"
+	"m32.h"
+
+1519476770 c:\users\somebody\documents\github\os_p1\include\cpu.h
+	<stdint.h>
+	"m32.h"
+
+1520401863 c:\users\somebody\documents\github\os_p1\include\m32.h
+	<bitset>
+	<string>
+
+1521670993 source:c:\users\somebody\documents\github\os_p1\src\hdd.cpp
+	<iostream>
+	<sstream>
+	<string>
+	<math.h>
+	"HDD.h"
+
+1521670637 c:\users\somebody\documents\github\os_p1\include\hdd.h
+	<bitset>
+	<string>
+	"m32.h"
+
+1521702520 source:c:\users\somebody\documents\github\os_p1\src\loader.cpp
+	<iostream>
+	<string>
+	<fstream>
+	"Loader.h"
+	"m32.h"
+	"PCB.h"
+
+1521702239 c:\users\somebody\documents\github\os_p1\include\loader.h
+	<iostream>
+	<string>
+	"m32.h"
+	"PCB.h"
+	"HDD.h"
+	"RAM.h"
+
+1521700100 c:\users\somebody\documents\github\os_p1\include\pcb.h
+	<string>
+	<vector>
+	<iostream>
+	"m32.h"
+
+1521670529 c:\users\somebody\documents\github\os_p1\include\ram.h
+	<bitset>
+	<string>
+	"m32.h"
+
+1520401571 source:c:\users\somebody\documents\github\os_p1\src\m32.cpp
+	<iostream>
+	<sstream>
+	<string>
+	<math.h>
+	"m32.h"
+
+1521700123 source:c:\users\somebody\documents\github\os_p1\src\pcb.cpp
+	<iostream>
+	<string>
+	<array>
+	<vector>
+	"PCB.h"
+
+1521700227 source:c:\users\somebody\documents\github\os_p1\src\ram.cpp
+	<iostream>
+	<sstream>
+	<string>
+	<math.h>
+	<assert.h>
+	"RAM.h"
+
+1519476895 source:c:\users\somebody\documents\github\os_p1\src\tester.cpp
+	<iostream>
+	"CPU.h"
+	"m32.h"
 
