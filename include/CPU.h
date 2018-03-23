@@ -41,6 +41,7 @@ private:
         BLZ
     };
 	m32 registers[16];
+	int PC; // The main program counter
 	OPCODES getOpCode(m32 InstructionTypes);
 	InstructionTypes getInstructionType(m32 instruction);
 	void resolveArithmetic(m32 instruction);

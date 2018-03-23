@@ -160,29 +160,31 @@
 	<string>
 	"m32.h"
 
-1521702520 source:c:\users\somebody\documents\github\os_p1\src\loader.cpp
+1521789410 source:c:\users\somebody\documents\github\os_p1\src\loader.cpp
 	<iostream>
 	<string>
 	<fstream>
 	"Loader.h"
 	"m32.h"
 	"PCB.h"
+	"IScheduler.h"
 
-1521702239 c:\users\somebody\documents\github\os_p1\include\loader.h
+1521706261 c:\users\somebody\documents\github\os_p1\include\loader.h
 	<iostream>
 	<string>
 	"m32.h"
 	"PCB.h"
 	"HDD.h"
 	"RAM.h"
+	"IScheduler.h"
 
-1521700100 c:\users\somebody\documents\github\os_p1\include\pcb.h
+1521795345 c:\users\somebody\documents\github\os_p1\include\pcb.h
 	<string>
 	<vector>
 	<iostream>
 	"m32.h"
 
-1521670529 c:\users\somebody\documents\github\os_p1\include\ram.h
+1521783858 c:\users\somebody\documents\github\os_p1\include\ram.h
 	<bitset>
 	<string>
 	"m32.h"
@@ -201,7 +203,7 @@
 	<vector>
 	"PCB.h"
 
-1521700227 source:c:\users\somebody\documents\github\os_p1\src\ram.cpp
+1521783836 source:c:\users\somebody\documents\github\os_p1\src\ram.cpp
 	<iostream>
 	<sstream>
 	<string>
@@ -213,4 +215,19 @@
 	<iostream>
 	"CPU.h"
 	"m32.h"
+
+1521768475 source:c:\users\somebody\documents\github\os_p1\src\fcfs_scheduler.cpp
+	"FCFS_Scheduler.h"
+	"IScheduler.h"
+	"PCB.h"
+
+1521784195 c:\users\somebody\documents\github\os_p1\include\fcfs_scheduler.h
+	"IScheduler.h"
+
+1521705793 c:\users\somebody\documents\github\os_p1\include\ischeduler.h
+	"PCB.h"
+
+1521784185 source:c:\users\somebody\documents\github\os_p1\src\priorityscheduler.cpp
+	"IScheduler.h"
+	"PCB.h"
 

@@ -13,7 +13,7 @@ class FCFS_Scheduler : public IScheduler
     protected:
 
     private:
-        queue processQueue;
+
 };
 
 #endif // FCFS_SCHEDULER_H

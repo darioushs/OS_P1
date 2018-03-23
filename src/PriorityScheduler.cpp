@@ -1,6 +1,7 @@
-#include "IScheduler.h"
+#include "PriorityScheduler.h"
 #include "PCB.h"
 
+/*
 void PriorityScheduler::LoadNextProcess() {
     PCB priority;
     int availRAM;   //the starting index of the available RAM after finding space
@@ -39,3 +40,49 @@ void PriorityScheduler::LoadNextProcess() {
 void PriorityScheduler::addPCB(PCB* pcb) {
     processTable.push_back(pcb);
 }
+*/
+
+int PriorityScheduler::getHighestPriorityProcessIndex() {
+    int currentHighestIndex = -1;
+    int currentHighestPriority = -1;
+    for (int i = 0; i <= readyQueue.size(); i++) {
+        if (readyQueue[i].state == PCB::ProcessStates::Ready) { // If process state is ready
+            if (readyQueue[i].priority > currentHighestPriority) { // If it has the highest priority
+                currentHighestIndex = i;
+            }
+        }
+    }
+    return currentHighestIndex;
+}
+
+void PriorityScheduler::addPcb(PCB* pcb) {
+    readyQueue.push_back(pcb);
+}
+
+void PriorityScheduler::loadNextProcess() {
+    PCB* processToLoad = readyQueue[getHighestPriorityProcessIndex()];
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

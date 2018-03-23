@@ -24,14 +24,20 @@ public:
 
     int Id; // Process ID
     int PC; // Program Counter
-    int CodeSize;
-    m32 RegisterStates[16]; // State of the resister
-    ProcessStates State;
+    int codeStartPosition; // Starting position of the code segment
+    int codeSize;
+    int dataStartPosition; // Starting position of data segment
+    int dataSize;
+    ProcessStates state;
     int priority;
     int inputBuffer; // The input buffer register for this process
     int outputBufferSize;
     int tempBufferSize;
-
+    struct registers {
+        int baseRegister;
+        int indexRegister;
+        m32 acumulatorRegisters[16]; // State of the resister
+    };
 	int startDisk, endDisk, startRam, endRam;
 	bool isInRam;
 

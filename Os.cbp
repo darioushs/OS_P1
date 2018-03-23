@@ -40,6 +40,8 @@
 		<Unit filename="include/Loader.h" />
 		<Unit filename="include/Motherboard.h" />
 		<Unit filename="include/PCB.h" />
+		<Unit filename="include/PriorityScheduler.h" />
+		<Unit filename="include/ProcessQueue.h" />
 		<Unit filename="include/RAM.h" />
 		<Unit filename="include/m32.h" />
 		<Unit filename="src/CPU.cpp" />
@@ -48,6 +50,8 @@
 		<Unit filename="src/Loader.cpp" />
 		<Unit filename="src/Motherboard.cpp" />
 		<Unit filename="src/PCB.cpp" />
+		<Unit filename="src/PriorityScheduler.cpp" />
+		<Unit filename="src/ProcessQueue.cpp" />
 		<Unit filename="src/RAM.cpp" />
 		<Unit filename="src/m32.cpp" />
 		<Unit filename="src/tester.cpp" />

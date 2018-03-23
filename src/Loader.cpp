@@ -4,14 +4,14 @@
 #include "Loader.h"
 #include "m32.h"
 #include "PCB.h"
-#inclide "IScheduler.h"
+#include "IScheduler.h"
 
 using namespace std;
 
 void Loader::addJob(string jobControlCard, PCB* inputPCB)
 {
     inputPCB->Id =  stoi(jobControlCard.substr(7,jobControlCard.find(delimterPosition)));
-	inputPCB->CodeSize = stoi(jobControlCard.substr(9, jobControlCard.find(delimterPosition)));
+	inputPCB->codeSize = stoi(jobControlCard.substr(9, jobControlCard.find(delimterPosition)));
     inputPCB->priority = stoi(jobControlCard.substr(12));
 }
 
@@ -26,6 +26,10 @@ bool Loader::isWildCard(string input) {
     return input.substr(0, 2) == "//";
 }
 
+bool isEndCard(string input) {
+    return input == "//END";
+}
+
 void Loader::Load(string filename, RAM* Ram, HDD* Disk, IScheduler* scheduler ) {
     ifstream file(filename);
     string str;
@@ -36,6 +40,7 @@ void Loader::Load(string filename, RAM* Ram, HDD* Disk, IScheduler* scheduler ) 
     while (std::getline(file, str))
     {
         if (isWildCard(str)) {
+            if (isEndCard(str)) break;
             if (readData) {
                 if (newPcb != nullptr) {
                     scheduler->addPCB(newPcb);
