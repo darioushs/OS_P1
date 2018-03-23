@@ -23,11 +23,8 @@ public:
     };
 
     int Id; // Process ID
-    int PC; // Program Counter.
-    int programStartPointer; // The memory location where the program starts in the ram
+    int PC; // Program Counter
     int CodeSize;
-    int dataStartPointer; // The memory location where the data segment begins
-    int dataSize;
     m32 RegisterStates[16]; // State of the resister
     ProcessStates State;
     int priority;
