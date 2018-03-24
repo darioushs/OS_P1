@@ -9,6 +9,7 @@
 class PriorityScheduler : public IScheduler {
 private:
     vector<PCB*> readyQueue;
+    CPU* cpu;
     int getHighestPriorityProcessIndex();
     Dispatcher dispatcher;
 

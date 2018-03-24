@@ -1,6 +1,9 @@
+#ifndef CPU_H
+#define CPU_H
+
 #include <stdint.h>
 #include "m32.h"
-
+#include "RAM.h"
 
 class CPU {
 
@@ -42,16 +45,22 @@ private:
     };
 	m32 registers[16];
 	int PC; // The main program counter
+    RAM* ram;
 	OPCODES getOpCode(m32 InstructionTypes);
 	InstructionTypes getInstructionType(m32 instruction);
 	void resolveArithmetic(m32 instruction);
 	void resolveConditional(m32 instruction);
 	void resolveUnConditional(m32 instruction);
 	void resolveIO(m32 instruction);
+	void execute(m32 instruction);
 
 public:
-    void execute(m32 instruction);
+    void cycle();
     int getRegisterValue(int registerNumber); // Retrieves the value stored in a register for testing purpose
     void displayAllRegisters();
     void setProgramCounter(int location);
+    void setRam(RAM* Ram) { ram = Ram; }
 };
+
+
+#endif

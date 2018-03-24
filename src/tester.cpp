@@ -5,11 +5,11 @@
 using namespace std;
 
 int main() {
-    m32 i;
-    CPU cpu;
-    i.SetHex(0x4CC00006);
-    cpu.execute(i);
-    cpu.displayAllRegisters();
+    //m32 i;
+    //CPU cpu;
+    //i.SetHex(0x4CC00006);
+    //cpu.execute(i);
+    //cpu.displayAllRegisters();
     //cout << "Register is set to: " << cpu.getRegisterValue(6) << endl;
     /*i.SetHex(0xc050005c);
     cpu.execute(i);

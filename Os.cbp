@@ -35,6 +35,7 @@
 		</Compiler>
 		<Unit filename="include/CPU.h" />
 		<Unit filename="include/Dispatcher.h" />
+		<Unit filename="include/Driver.h" />
 		<Unit filename="include/FCFS_Scheduler.h" />
 		<Unit filename="include/HDD.h" />
 		<Unit filename="include/IScheduler.h" />
@@ -48,6 +49,7 @@
 		<Unit filename="include/m32.h" />
 		<Unit filename="src/CPU.cpp" />
 		<Unit filename="src/Dispatcher.cpp" />
+		<Unit filename="src/Driver.cpp" />
 		<Unit filename="src/FCFS_Scheduler.cpp" />
 		<Unit filename="src/HDD.cpp" />
 		<Unit filename="src/IScheduler.cpp" />

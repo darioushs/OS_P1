@@ -36,7 +36,7 @@ void Loader::Load(string filename, RAM* Ram, HDD* Disk, IScheduler* scheduler ) 
     int readData = true; // When this is set to false the next control card we read is instruction, then we set this to true.
     PCB *newPcb = nullptr;
     int CurrentHddLocation = 0;
-
+    // TODO: The loader need to create a new pcb in the pcb table of the HDD when it loads a new process
     while (std::getline(file, str))
     {
         if (isWildCard(str)) {

@@ -2,7 +2,7 @@
 
 Motherboard::Motherboard()
 {
-    //ctor
+    cpu.setRam(&ram);
 }
 
 Motherboard::~Motherboard()

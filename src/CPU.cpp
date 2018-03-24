@@ -94,7 +94,9 @@ void CPU::setProgramCounter(int location) {
      PC = location;
 }
 
-
+void CPU::cycle() {
+    execute(ram->getMemory(PC));
+}
 
 
 

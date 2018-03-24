@@ -5,8 +5,8 @@ PriorityScheduler::PriorityScheduler() : IScheduler() {
 
 }
 
-PriorityScheduler::PriorityScheduler(RAM* ram, HDD* hdd, CPU* cpu): IScheduler() {
-    dispatcher.setCpu(cpu);
+PriorityScheduler::PriorityScheduler(RAM* ram, HDD* hdd, CPU* Cpu): IScheduler() {
+    cpu = Cpu;
     dispatcher.setHdd(hdd);
     dispatcher.setRam(ram);
 }
@@ -71,6 +71,7 @@ void PriorityScheduler::addPcb(PCB* pcb) {
 
 int PriorityScheduler::loadNextProcess() {
     PCB* processToLoad = readyQueue[getHighestPriorityProcessIndex()];
+    dispatcher.swapInProcess(processToLoad);
 
 }
 
