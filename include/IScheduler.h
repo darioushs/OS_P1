@@ -6,8 +6,8 @@
 class IScheduler
 {
     public:
-        virtual void loadNextProcess() = 0;
-        virtual void addPCB(PCB* pcb);
+        virtual int loadNextProcess() = 0;
+        virtual void addPCB(PCB* pcb) = 0;
         virtual ~IScheduler();
 
     protected:

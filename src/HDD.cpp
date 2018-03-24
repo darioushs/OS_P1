@@ -21,3 +21,7 @@ void HDD::setMemory(int index, int value) {
     }
     memory[index] = value;
 }
+
+int HDD::getProcessStartLocationOnDisk(int PID) {
+
+}

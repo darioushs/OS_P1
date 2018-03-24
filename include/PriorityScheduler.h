@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 #ifndef PIORITYSCHEDULER_H
 #define PIORITYSCHEDULER_H
 
@@ -13,26 +12,8 @@ private:
 
 public:
     void addPcb(PCB* pcb);
-    void loadNextProcess();
+    int loadNextProcess(); // Return a program counter to tell CPU where to start executing code from
 };
 
 
 #endif
-=======
-#include "IScheduler.h"
-#include <vector>
-
-class PriorityScheduler : public IScheduler
-{
-    public:
-        void LoadNextProcess();
-        void addPCB(PCB* pcb);
-        vector<PCB*> processTable;
-
-    protected:
-
-    private:
-};
-
-#endif
->>>>>>> 7218e800a6879b4063e549697cb835c5f71c7b5a

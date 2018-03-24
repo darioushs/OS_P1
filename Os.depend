@@ -140,7 +140,7 @@
 	"CPU.h"
 	"m32.h"
 
-1519476770 c:\users\somebody\documents\github\os_p1\include\cpu.h
+1521796290 c:\users\somebody\documents\github\os_p1\include\cpu.h
 	<stdint.h>
 	"m32.h"
 
@@ -224,10 +224,22 @@
 1521784195 c:\users\somebody\documents\github\os_p1\include\fcfs_scheduler.h
 	"IScheduler.h"
 
-1521705793 c:\users\somebody\documents\github\os_p1\include\ischeduler.h
+1521854962 c:\users\somebody\documents\github\os_p1\include\ischeduler.h
 	"PCB.h"
 
-1521784185 source:c:\users\somebody\documents\github\os_p1\src\priorityscheduler.cpp
+1521854906 source:c:\users\somebody\documents\github\os_p1\src\priorityscheduler.cpp
+	"PriorityScheduler.h"
+	"PCB.h"
+
+1521854659 source:c:\users\somebody\documents\github\os_p1\src\dispatcher.cpp
+	"Dispatcher.h"
+
+1521854635 c:\users\somebody\documents\github\os_p1\include\dispatcher.h
+	"HDD.h"
+	"RAM.h"
+	"PCB.h"
+
+1521854754 c:\users\somebody\documents\github\os_p1\include\priorityscheduler.h
 	"IScheduler.h"
 	"PCB.h"
 
