@@ -11,14 +11,14 @@ using namespace std;
 class HDD {
 private:
     m32 memory[2018];
-     ProcessPool processPool;
+    ProcessPool processPool;
 
 public:
 	HDD() {}
 	m32 getMemory(int index);
 	void setMemory(int index, int value);
 	int getProcessStartLocationOnDisk(int PID);
-	int addProcessToPool(int PID, int location);
+	void addProcessToPool(PCB* pcb, int position);
 };
 
 #endif

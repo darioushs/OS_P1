@@ -1,6 +1,16 @@
 #include "PriorityScheduler.h"
 #include "PCB.h"
 
+PriorityScheduler::PriorityScheduler() : IScheduler() {
+
+}
+
+PriorityScheduler::PriorityScheduler(RAM* ram, HDD* hdd, CPU* cpu): IScheduler() {
+    dispatcher.setCpu(cpu);
+    dispatcher.setHdd(hdd);
+    dispatcher.setRam(ram);
+}
+
 /*
 void PriorityScheduler::LoadNextProcess() {
     PCB priority;
@@ -61,7 +71,7 @@ void PriorityScheduler::addPcb(PCB* pcb) {
 
 int PriorityScheduler::loadNextProcess() {
     PCB* processToLoad = readyQueue[getHighestPriorityProcessIndex()];
-    return 1;
+
 }
 
 

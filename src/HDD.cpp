@@ -23,5 +23,9 @@ void HDD::setMemory(int index, int value) {
 }
 
 int HDD::getProcessStartLocationOnDisk(int PID) {
+    return processPool.getProcessPosition(PID);
+}
 
+void HDD::addProcessToPool(PCB* pcb, int position) {
+    processPool.addProcess(pcb, position);
 }

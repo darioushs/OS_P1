@@ -53,4 +53,5 @@ public:
     void execute(m32 instruction);
     int getRegisterValue(int registerNumber); // Retrieves the value stored in a register for testing purpose
     void displayAllRegisters();
+    void setProgramCounter(int location);
 };

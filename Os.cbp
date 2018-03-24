@@ -50,12 +50,12 @@
 		<Unit filename="src/Dispatcher.cpp" />
 		<Unit filename="src/FCFS_Scheduler.cpp" />
 		<Unit filename="src/HDD.cpp" />
+		<Unit filename="src/IScheduler.cpp" />
 		<Unit filename="src/Loader.cpp" />
 		<Unit filename="src/Motherboard.cpp" />
 		<Unit filename="src/PCB.cpp" />
 		<Unit filename="src/PriorityScheduler.cpp" />
 		<Unit filename="src/ProcessPool.cpp" />
-		<Unit filename="src/ProcessQueue.cpp" />
 		<Unit filename="src/RAM.cpp" />
 		<Unit filename="src/m32.cpp" />
 		<Unit filename="src/tester.cpp" />

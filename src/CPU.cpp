@@ -90,6 +90,10 @@ void CPU::displayAllRegisters() {
     }
 }
 
+void CPU::setProgramCounter(int location) {
+     PC = location;
+}
+
 
 
 

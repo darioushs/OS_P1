@@ -26,7 +26,6 @@ public:
     int PC; // Program Counter
     int codeStartPosition; // Starting position of the code segment
     int codeSize;
-    int dataStartPosition; // Starting position of data segment
     int dataSize;
     ProcessStates state;
     int priority;
