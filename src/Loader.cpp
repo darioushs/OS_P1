@@ -30,7 +30,7 @@ bool isEndCard(string input) {
     return input == "//END";
 }
 
-void Loader::Load(string filename, RAM* Ram, HDD* Disk, IScheduler* scheduler ) {
+/*void Loader::Load(string filename, RAM* Ram, HDD* Disk, IScheduler* scheduler ) {
     ifstream file(filename);
     string str;
     int readData = true; // When this is set to false the next control card we read is instruction, then we set this to true.
@@ -44,6 +44,7 @@ void Loader::Load(string filename, RAM* Ram, HDD* Disk, IScheduler* scheduler ) 
             if (readData) {
                 if (newPcb != nullptr) {
                     scheduler->addPCB(newPcb);
+                    Disk->addProcessToPool(newPcb, CurrentHddLocation);
                 }
                 newPcb = new PCB();
                 addJob(str, newPcb);
@@ -56,4 +57,57 @@ void Loader::Load(string filename, RAM* Ram, HDD* Disk, IScheduler* scheduler ) 
             Disk->getMemory(CurrentHddLocation).SetHex(stoi(str));
         }
     }
+}*/
+
+void Loader::Load(string filename, RAM* Ram, HDD* Disk, IScheduler scheduler) {
+    ifstream file(filename);
+    string str;
+	PCB* newPcb = nullptr;
+	bool endLoop = false;
+	string currentReading = "JOB";
+	int codeSize = 0;
+	int dataSize = 0;
+	int currentMemLocation = 0;
+	int lastJobEndLocation = 0;
+    while (std::getline(file, str)) {
+		if (isWildCard(str)) {
+			string wildCard = str.substr(3, 3);
+			if (wildCard == "JOB") {
+				newPcb = new PCB();
+				Disk->addProcessToPool(newPcb, lastJobEndLocation);
+				addJob(str, newPcb);
+			} else if (wildCard == "DAT") {
+				newPcb->codeSize = codeSize;
+				currentReading = "DATA";
+			} else if (wildCard == "END") {
+				newPcb->dataSize = dataSize;
+				lastJobEndLocation = currentMemLocation;
+				currentReading = "JOB";
+			}
+		} else {
+			Disk->getMemory(currentMemLocation).SetHex(stoi(str));
+			if (currentReading == "JOB") codeSize++;
+			if (currentReading == "DAT") dataSize++;
+			currentMemLocation++;
+		}
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

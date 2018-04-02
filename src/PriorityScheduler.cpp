@@ -72,7 +72,7 @@ void PriorityScheduler::addPcb(PCB* pcb) {
 int PriorityScheduler::loadNextProcess() {
     PCB* processToLoad = readyQueue[getHighestPriorityProcessIndex()];
     dispatcher.swapInProcess(processToLoad);
-
+	return processToLoad->PC;
 }
 
 
