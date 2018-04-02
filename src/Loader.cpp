@@ -59,11 +59,10 @@ bool isEndCard(string input) {
     }
 }*/
 
-void Loader::Load(string filename, RAM* Ram, HDD* Disk, IScheduler scheduler) {
+void Loader::Load(string filename, RAM* Ram, HDD* Disk, IScheduler* scheduler) {
     ifstream file(filename);
     string str;
 	PCB* newPcb = nullptr;
-	bool endLoop = false;
 	string currentReading = "JOB";
 	int codeSize = 0;
 	int dataSize = 0;
