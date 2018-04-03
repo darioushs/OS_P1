@@ -1,11 +1,8 @@
 #include "Motherboard.h"
+#include "CPU.h"
 
-Motherboard::Motherboard()
-{
-    cpu.setRam(&ram);
-}
-
-Motherboard::~Motherboard()
-{
-    //dtor
+Motherboard::Motherboard() {
+    ram = RAM();
+    hdd = HDD();
+    cpu = CPU(&ram);
 }

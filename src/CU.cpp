@@ -7,6 +7,15 @@
 
 using namespace std;
 
+CU::CU() {
+
+}
+
+CU::CU(RAM* Ram, ALU* Alu) {
+    ram = Ram;
+    alu = Alu;
+}
+
 void CU::resolveArithmetic(m32 instruction)
 {
     int s1Reg = instruction.GetDecimal(20, 23);
@@ -49,7 +58,9 @@ void CU::resolveConditional(m32 instruction)
         switch (Opcode)
         {
         case MOVI:
-            //registers[bReg] = data;
+            //registers[bReg] = data;.
+
+            break;
         }
     }
 }

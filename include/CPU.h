@@ -15,9 +15,11 @@ private:
     CpuMem cpuMemory;
 
 public:
+    CPU() {};
     CPU(RAM* Ram);
     void cycle();
     m32 fetch();
+    void setProgramCounter(int pc);
 };
 
 

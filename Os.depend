@@ -100,10 +100,11 @@
 	<string>
 	"m32.h"
 
-1521874128 source:c:\users\somebody\documents\github\os_p1\src\motherboard.cpp
+1522741265 source:c:\users\somebody\documents\github\os_p1\src\motherboard.cpp
 	"Motherboard.h"
+	"CPU.h"
 
-1521867260 c:\users\somebody\documents\github\os_p1\include\motherboard.h
+1522741281 c:\users\somebody\documents\github\os_p1\include\motherboard.h
 	"CPU.h"
 	"HDD.h"
 	"RAM.h"
@@ -133,17 +134,17 @@
 	<vector>
 	"PCB.h"
 
-1521874651 source:c:\users\somebody\documents\github\os_p1\src\cpu.cpp
+1522739967 source:c:\users\somebody\documents\github\os_p1\src\cpu.cpp
 	<iostream>
-	<string>
-	<bitset>
 	"CPU.h"
-	"m32.h"
+	"CpuMem.h"
 
-1521874457 c:\users\somebody\documents\github\os_p1\include\cpu.h
+1522741140 c:\users\somebody\documents\github\os_p1\include\cpu.h
 	<stdint.h>
 	"m32.h"
 	"RAM.h"
+	"ALU.h"
+	"CU.h"
 
 1520401863 c:\users\somebody\documents\github\os_p1\include\m32.h
 	<bitset>
@@ -267,4 +268,35 @@
 	"Motherboard.h"
 	"PriorityScheduler.h"
 	"Loader.h"
+
+1522740806 c:\users\somebody\documents\github\os_p1\include\alu.h
+	"m32.h"
+	"CpuMem.h"
+	"RAM.h"
+
+1522737579 c:\users\somebody\documents\github\os_p1\include\cpumem.h
+	"m32.h"
+
+1522739182 c:\users\somebody\documents\github\os_p1\include\cu.h
+	<stdint.h>
+	"m32.h"
+	"RAM.h"
+	"ALU.h"
+
+1522740957 source:c:\users\somebody\documents\github\os_p1\src\alu.cpp
+	<iostream>
+	"ALU.h"
+	"m32.h"
+
+1522740824 source:c:\users\somebody\documents\github\os_p1\src\cu.cpp
+	<iostream>
+	<string>
+	<bitset>
+	"CU.h"
+	"CPU.h"
+	"m32.h"
+
+1522737671 source:c:\users\somebody\documents\github\os_p1\src\cpumem.cpp
+	"CpuMem.h"
+	"m32.h"
 

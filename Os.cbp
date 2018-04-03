@@ -35,6 +35,8 @@
 		</Compiler>
 		<Unit filename="include/ALU.h" />
 		<Unit filename="include/CPU.h" />
+		<Unit filename="include/CU.h" />
+		<Unit filename="include/CpuMem.h" />
 		<Unit filename="include/Dispatcher.h" />
 		<Unit filename="include/Driver.h" />
 		<Unit filename="include/FCFS_Scheduler.h" />
@@ -50,6 +52,8 @@
 		<Unit filename="include/m32.h" />
 		<Unit filename="src/ALU.cpp" />
 		<Unit filename="src/CPU.cpp" />
+		<Unit filename="src/CU.cpp" />
+		<Unit filename="src/CpuMem.cpp" />
 		<Unit filename="src/Dispatcher.cpp" />
 		<Unit filename="src/Driver.cpp" />
 		<Unit filename="src/FCFS_Scheduler.cpp" />

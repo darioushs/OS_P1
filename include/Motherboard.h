@@ -10,12 +10,10 @@ class Motherboard
 {
     public:
         Motherboard();
-        virtual ~Motherboard();
         RAM* getRAM() { return &ram; }
         HDD* getHDD() { return &hdd; }
         CPU* getCPU() { return &cpu; }
 
-    protected:
 
     private:
         RAM ram;

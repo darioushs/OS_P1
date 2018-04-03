@@ -8,6 +8,10 @@ CPU::CPU(RAM* Ram) {
     cu = CU(Ram, &alu);
 }
 
+void CPU::setProgramCounter(int pc) {
+    cpuMemory.programCounter = pc;
+}
+
 m32 CPU::fetch() {
     return ram->getMemory(cpuMemory.programCounter);
 }
