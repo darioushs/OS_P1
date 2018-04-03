@@ -33,6 +33,7 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="include/ALU.h" />
 		<Unit filename="include/CPU.h" />
 		<Unit filename="include/Dispatcher.h" />
 		<Unit filename="include/Driver.h" />
@@ -47,6 +48,7 @@
 		<Unit filename="include/ProcessQueue.h" />
 		<Unit filename="include/RAM.h" />
 		<Unit filename="include/m32.h" />
+		<Unit filename="src/ALU.cpp" />
 		<Unit filename="src/CPU.cpp" />
 		<Unit filename="src/Dispatcher.cpp" />
 		<Unit filename="src/Driver.cpp" />
