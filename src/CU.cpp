@@ -57,11 +57,88 @@ void CU::resolveConditional(m32 instruction)
         cout << "OPCODE: " << Opcode << endl;
         switch (Opcode)
         {
-        case MOVI:
-            //registers[bReg] = data;.
+        case BEQ:
+
+            break;
+        case BNE:
+
+            break;
+        case BEZ:
+
+            break;
+        case BNZ:
+
+            break;
+        case BGZ:
+
+            break;
+        case BLZ:
 
             break;
         }
+    }
+}
+
+void CU::resolveIO(m32 instruction) {
+    int reg1 = instruction.GetDecimal(20, 23);
+    int reg2 = instruction.GetDecimal(16, 19);
+    int data = instruction.GetDecimal(0, 15);
+    OPCODES Opcode = getOpCode(instruction);
+
+    switch (Opcode) {
+    case RD:
+        //Input buffer written to accumulator
+        register[0] = //input buffer
+        break;
+    case WR:
+        //Accumulator written to output buffer
+
+        break;
+    case ST:
+        //Store content of reg into address
+        break;
+    case LW:
+        //Load content of address into reg
+        break;
+    case MOVI:
+        //registers[bReg] = data;.
+    case ADDI:
+        //register[bReg] += data;
+        break;
+    case MULI:
+        //register[bReg] *= data;
+        break;
+    case DIVI:
+        //register[bReg] /= data;
+        break;
+    case LDI:
+        //Same as MOVI?
+        //register[bReg] = data;
+        break;
+
+        //SLTI might actually belong in the ALU
+    case SLTI:
+        /*if(bReg < data)
+            dReg = 1;
+        else
+            dReg = 0;
+        break;*/
+    }
+}
+
+void CU::resolveUnConditional(m32 instruction) {
+    int address = instruction.GetDecimal(0, 23);
+    OPCODES Opcode = getOpCode(instruction);
+    switch (Opcode) {
+    case HLT:
+        //Program is donezo. Set program's process state to terminated.
+        break;
+    case NOP:
+        //literally do nothing and move to next line. this isn't in the first 4 programs in AssemblyLanguageCode
+        break;
+    case JMP:
+        //jump to address. this isn't in the first 4 programs in AssemblyLanguageCode
+        break;
     }
 }
 
