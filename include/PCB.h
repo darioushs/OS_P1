@@ -32,11 +32,12 @@ public:
     int inputBuffer; // The input buffer register for this process
     int outputBufferSize;
     int tempBufferSize;
-    struct registers {
+    struct RegStruct {
         int baseRegister;
         int indexRegister;
         m32 acumulatorRegisters[16]; // State of the resister
     };
+    RegStruct registers;
 	int startDisk, endDisk, startRam, endRam;
 	bool isInRam;
 

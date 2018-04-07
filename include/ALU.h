@@ -20,7 +20,7 @@ public:
 
 
     void displayAllRegisters();
-
+    void setRegister(int registerNumber, int value);
 
 private:
     int numberOfRegisters = 16;

@@ -36,6 +36,10 @@ int ALU::MOV(int sReg, int dReg) {
     return 1;
 }void decode(m32 instruction);
 
+void ALU::setRegister(int registerNumber, int value) {
+    memory->set_general_purpose_register(registerNumber, value);
+}
+
 void ALU::displayAllRegisters()
 {
     for (int i = 0; i < 16; i++)

@@ -18,6 +18,7 @@ public:
     PriorityScheduler(RAM* ram, HDD* hdd, CPU* cpu);
     void addPcb(PCB* pcb);
     int loadNextProcess(); // Return a program counter to tell CPU where to start executing code from
+    void signalProcessEnd();
 };
 
 

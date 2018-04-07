@@ -70,12 +70,16 @@ void PriorityScheduler::addPcb(PCB* pcb) {
 }
 
 int PriorityScheduler::loadNextProcess() {
-    PCB* processToLoad = readyQueue[getHighestPriorityProcessIndex()];
+    int highestPriorityProcess;
+    highestPriorityProcess = getHighestPriorityProcessIndex();
+    PCB* processToLoad = readyQueue[highestPriorityProcess];
+    if (processToLoad->PC = processToLoad->codeSize) { // If the process is finished, removed it from the ready queue and call this function again
+        readyQueue.erase(readyQueue.begin() + highestPriorityProcess);
+        return loadNextProcess();
+    }
     dispatcher.swapInProcess(processToLoad);
 	return processToLoad->PC;
 }
-
-
 
 
 

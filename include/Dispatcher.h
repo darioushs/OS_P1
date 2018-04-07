@@ -11,12 +11,13 @@ class Dispatcher {
 private:
     RAM* ram;
     HDD* hdd;
+    CPU* cpu;
     bool firstRun = true;
     PCB* currentPcbInMemory; // If this is the same as the one we are swapping in then return
 
 public:
     Dispatcher() {};
-    Dispatcher(RAM* Ram, HDD* Hdd);
+    Dispatcher(RAM* Ram, HDD* Hdd, CPU* Cpu);
     int swapInProcess(PCB* pcb);
     void setRam(RAM* Ram) { ram = Ram; }
     void setHdd(HDD* Hdd) { hdd = Hdd; }

@@ -19,3 +19,10 @@ m32 CPU::fetch() {
 void CPU::cycle() {
     cu.decode(fetch());
 }
+
+void CPU::configureRegisters(m32* registers) {
+    for (int i = 0; i < 16; i++) {
+        alu.setRegister(i, registers->GetDecimal(0,15));
+        registers++;
+    }
+}

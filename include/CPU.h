@@ -20,6 +20,7 @@ public:
     void cycle();
     m32 fetch();
     void setProgramCounter(int pc);
+    void configureRegisters(m32* registers);
 };
 
 
