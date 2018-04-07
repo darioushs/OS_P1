@@ -39,3 +39,6 @@ Os.layout
 Os.layout
 *.layout
 Os.layout
+*.db
+*.sqlite
+*.json
