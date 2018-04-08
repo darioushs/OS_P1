@@ -39,6 +39,9 @@ void CU::resolveArithmetic(m32 instruction)
     case OPCODES::MOV:
         operationResult = alu->MOV(s1Reg, dReg);
         break;
+    case OPCODES::SLT:   //Load content of address into reg
+
+        break;
     }
 }
 
@@ -57,6 +60,34 @@ void CU::resolveConditional(m32 instruction)
         cout << "OPCODE: " << Opcode << endl;
         switch (Opcode)
         {
+        case MOVI:  //Transfers address/data directly into register
+            ALU.setRegister(bReg, dataDecimal);
+            break;
+        case ST:    //Stores content of reg into address
+            //setAddress(CpuMem.get_general_purpose_register(bReg), address);
+            break;
+        case LW:    //Load content of address into reg
+            ALU.setRegister(bReg, dataDecimal);
+            break;
+        case ADDI:  //Add data value directly with content of register
+            //register[bReg] += data;
+            ALU.setRegister(bReg, (CpuMem.get_general_purpose_register(bReg) + dataDecimal));
+            break;
+        case MULI:  //Multiplies data value directly with content of register
+            ALU.setRegister(bReg, (CpuMem.get_general_purpose_register(bReg) * dataDecimal));
+            break;
+        case DIVI:  //Divides data value directly with content of register
+            ALU.setRegister(bReg, (CpuMem.get_general_purpose_register(bReg) / dataDecimal));
+            break;
+        case LDI:
+            ALU.setRegister(bReg, dataDecimal);
+            break;
+        case SLTI:
+            if(bReg < data)
+                dReg = 1;
+            else
+                dReg = 0;
+            break;
         case BEQ:
 
             break;
@@ -86,43 +117,13 @@ void CU::resolveIO(m32 instruction) {
     OPCODES Opcode = getOpCode(instruction);
 
     switch (Opcode) {
-    case RD:
-        //Input buffer written to accumulator
-        register[0] = //input buffer
+    case RD:    //Input buffer written to accumulator
+        ALU.setRegister(0, data);
         break;
     case WR:
         //Accumulator written to output buffer
-
+        //outputBuffer = CpuMem.get_general_purpose_register(0);
         break;
-    case ST:
-        //Store content of reg into address
-        break;
-    case LW:
-        //Load content of address into reg
-        break;
-    case MOVI:
-        //registers[bReg] = data;.
-    case ADDI:
-        //register[bReg] += data;
-        break;
-    case MULI:
-        //register[bReg] *= data;
-        break;
-    case DIVI:
-        //register[bReg] /= data;
-        break;
-    case LDI:
-        //Same as MOVI?
-        //register[bReg] = data;
-        break;
-
-        //SLTI might actually belong in the ALU
-    case SLTI:
-        /*if(bReg < data)
-            dReg = 1;
-        else
-            dReg = 0;
-        break;*/
     }
 }
 
@@ -134,7 +135,6 @@ void CU::resolveUnConditional(m32 instruction) {
         //Program is donezo. Set program's process state to terminated.
         break;
     case NOP:
-        //literally do nothing and move to next line. this isn't in the first 4 programs in AssemblyLanguageCode
         break;
     case JMP:
         //jump to address. this isn't in the first 4 programs in AssemblyLanguageCode
