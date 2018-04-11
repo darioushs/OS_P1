@@ -34,7 +34,29 @@ int ALU::DIV(int sReg, int dReg) {
 int ALU::MOV(int sReg, int dReg) {
     memory->set_general_purpose_register(dReg, memory->get_general_purpose_register(sReg));
     return 1;
-}void decode(m32 instruction);
+}
+
+int ALU::AND(int sReg1, int sReg2, int dReg) {
+    int arg1 = memory->get_general_purpose_register(sReg1).ToInt();
+    int arg2 = memory->get_general_purpose_register(sReg2).ToInt();
+    memory->set_general_purpose_register(dReg, (arg1 & arg2));
+}
+
+int ALU::OR(int sReg1, int sReg2, int dReg) {
+    int arg1 = memory->get_general_purpose_register(sReg1).ToInt();
+    int arg2 = memory->get_general_purpose_register(sReg2).ToInt();
+    memory->set_general_purpose_register(dReg, (arg1 | arg2));
+}
+
+int ALU::ST(int sReg, int memLocation) {
+    ram->setMemory(memLocation, memory->get_general_purpose_register(sReg).ToInt());
+}
+
+int ALU::LD(int memLocation, int sReg) {
+    memory->set_general_purpose_register(sReg, ram->getMemory(memLocation));
+}
+
+void decode(m32 instruction);
 
 void ALU::setRegister(int registerNumber, int value) {
     memory->set_general_purpose_register(registerNumber, value);

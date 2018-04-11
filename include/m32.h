@@ -19,6 +19,7 @@ public:
 	void SetHex(int hex); // Sets the value of the bitset to a hex number
     int GetBit(int index); // Retrieves an individual bit
     int GetDecimal(int lowerBit, int higherBit); // Gets the decimal value of a range of bits
+    int ToInt();
     string ToString();
     m32 operator+(m32 other);
     m32 operator-(m32 other);

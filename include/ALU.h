@@ -15,9 +15,14 @@ public:
     int MUL(int sReg, int dReg);
     int DIV(int sReg, int dReg);
     int MOV(int sReg, int dReg);
+    int AND(int sReg1, int sReg2, int dReg);
+    int OR (int sReg1, int sReg2, int dReg);
 
     // Conditional Instructions
 
+    // Immediate Instructions
+    int ST(int sReg, int memLocation);
+    int LD(int memLocation, int sReg);
 
     void displayAllRegisters();
     void setRegister(int registerNumber, int value);

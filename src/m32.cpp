@@ -73,6 +73,10 @@ int m32::GetDecimal(int lowerBit, int higherBit) {
     return retval;
 }
 
+int m32::ToInt() {
+    return GetDecimal(0, 15);
+}
+
 string m32::ToString() {
     return memory.to_string();
 }
