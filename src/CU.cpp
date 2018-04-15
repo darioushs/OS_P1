@@ -47,7 +47,7 @@ void CU::resolveArithmetic(m32 instruction)
 
 void CU::resolveConditional(m32 instruction)
 {
-    int bReg = instruction.GetDecimal(20, 23);
+    int bReg = instruction.GetDecimal(19, 23);
     int dReg = instruction.GetDecimal(16, 19);
     cout << "B-Register: " << bReg << endl;
     cout << "D-Register: " << dReg << endl;
@@ -61,32 +61,34 @@ void CU::resolveConditional(m32 instruction)
         switch (Opcode)
         {
         case MOVI:  //Transfers address/data directly into register
-            ALU.setRegister(bReg, dataDecimal);
+            //ALU.setRegister(bReg, dataDecimal);
+            alu->MOVI(bReg, dReg);
             break;
         case ST:    //Stores content of reg into address
             //setAddress(CpuMem.get_general_purpose_register(bReg), address);
             break;
         case LW:    //Load content of address into reg
-            ALU.setRegister(bReg, dataDecimal);
+            //ALUsetRegister(bReg, dataDecimal);
             break;
         case ADDI:  //Add data value directly with content of register
             //register[bReg] += data;
-            ALU.setRegister(bReg, (CpuMem.get_general_purpose_register(bReg) + dataDecimal));
+            //ALU.setRegister(bReg, (CpuMem.get_general_purpose_register(bReg) + dataDecimal));
+            //alu.ADDI(bReg, dataDecimal);
             break;
         case MULI:  //Multiplies data value directly with content of register
-            ALU.setRegister(bReg, (CpuMem.get_general_purpose_register(bReg) * dataDecimal));
+            //ALU.setRegister(bReg, (CpuMem.get_general_purpose_register(bReg) * dataDecimal));
             break;
         case DIVI:  //Divides data value directly with content of register
-            ALU.setRegister(bReg, (CpuMem.get_general_purpose_register(bReg) / dataDecimal));
+            //ALU.setRegister(bReg, (CpuMem.get_general_purpose_register(bReg) / dataDecimal));
             break;
         case LDI:
-            ALU.setRegister(bReg, dataDecimal);
+            //ALU.setRegister(bReg, dataDecimal);
             break;
         case SLTI:
-            if(bReg < data)
-                dReg = 1;
-            else
-                dReg = 0;
+            //if(bReg < data)
+                //dReg = 1;
+            //else
+                //dReg = 0;
             break;
         case BEQ:
 
@@ -118,7 +120,7 @@ void CU::resolveIO(m32 instruction) {
 
     switch (Opcode) {
     case RD:    //Input buffer written to accumulator
-        ALU.setRegister(0, data);
+        //ALU.setRegister(0, data);
         break;
     case WR:
         //Accumulator written to output buffer

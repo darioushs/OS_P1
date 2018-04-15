@@ -16,6 +16,7 @@ public:
 	RAM() {}
 	m32 getMemory(int index);
 	void setMemory(int index, int value);
+	void printRam();
 };
 
 #endif

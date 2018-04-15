@@ -81,6 +81,9 @@ int PriorityScheduler::loadNextProcess() {
 	return processToLoad->PC;
 }
 
+void PriorityScheduler::signalProcessEnd() {
+
+}
 
 
 

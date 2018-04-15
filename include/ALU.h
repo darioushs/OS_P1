@@ -20,8 +20,9 @@ public:
 
     // Conditional Instructions
 
-    // Immediate Instructions
-    int MOVI()
+    // Immediate & Unconditional Instructions
+    int MOVI(int sReg, int dReg);
+    int ADDI(int sReg, int value);
     int ST(int sReg, int memLocation);
     int LD(int memLocation, int sReg);
 

@@ -48,6 +48,16 @@ int ALU::OR(int sReg1, int sReg2, int dReg) {
     memory->set_general_purpose_register(dReg, (arg1 | arg2));
 }
 
+int ALU::ADDI(int sReg, int value) {
+    memory->set_general_purpose_register(sReg, m32(value));
+    return 1;
+}
+
+int ALU::MOVI(int sReg, int dReg) {
+    memory->set_general_purpose_register(dReg, memory->get_general_purpose_register(sReg));
+    return 1;
+}
+
 int ALU::ST(int sReg, int memLocation) {
     ram->setMemory(memLocation, memory->get_general_purpose_register(sReg).ToInt());
 }

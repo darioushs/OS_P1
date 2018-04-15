@@ -1,13 +1,17 @@
 #include <iostream>
 #include "CPU.h"
 #include "m32.h"
+#include "Motherboard.h"
 
 using namespace std;
 
-Motherboard motherboard;
+Motherboard m;
 
 void test_cpu() {
-
+    m.getRAM()->setMemory(0, 0x4B060000);
+    m.getRAM()->printRam();
+    //int retval = m.getRAM()->getMemory(0).ToInt();
+    //cout << retval << endl;
 }
 
 int main() {
@@ -25,4 +29,5 @@ int main() {
     m2.SetHex(5);
     m32 m3 = m1/m2;
     cout << "Result: " << m3.GetDecimal(0,31) << endl;*/
+    test_cpu();
 }

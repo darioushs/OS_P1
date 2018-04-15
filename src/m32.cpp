@@ -73,14 +73,6 @@ int m32::GetDecimal(int lowerBit, int higherBit) {
     return retval;
 }
 
-void m32::enableRamMode() {
-    isInRamMode = true;
-}
-
-void m32::disableRamMode() {
-    isInRamMode = false;
-}
-
 int m32::ToInt() {
     return GetDecimal(0, 15);
 }
