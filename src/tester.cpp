@@ -4,6 +4,12 @@
 
 using namespace std;
 
+Motherboard motherboard;
+
+void test_cpu() {
+
+}
+
 int main() {
     //m32 i;
     //CPU cpu;

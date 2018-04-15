@@ -21,6 +21,7 @@ public:
     // Conditional Instructions
 
     // Immediate Instructions
+    int MOVI()
     int ST(int sReg, int memLocation);
     int LD(int memLocation, int sReg);
 

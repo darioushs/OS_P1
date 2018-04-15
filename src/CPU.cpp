@@ -18,6 +18,7 @@ m32 CPU::fetch() {
 
 void CPU::cycle() {
     cu.decode(fetch());
+    cpuMemory.programCounter++;
 }
 
 void CPU::configureRegisters(m32* registers) {

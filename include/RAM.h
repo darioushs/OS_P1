@@ -10,7 +10,7 @@ using namespace std;
 class RAM {
 private:
     m32 memory[1024];
-    int used; // Amount of used memory
+    int used = 0; // Amount of used memory
 
 public:
 	RAM() {}

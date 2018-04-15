@@ -56,7 +56,7 @@ int ALU::LD(int memLocation, int sReg) {
     memory->set_general_purpose_register(sReg, ram->getMemory(memLocation));
 }
 
-void decode(m32 instruction);
+//void decode(m32 instruction); idk who added this so im commenting it out for now
 
 void ALU::setRegister(int registerNumber, int value) {
     memory->set_general_purpose_register(registerNumber, value);
