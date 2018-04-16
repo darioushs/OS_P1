@@ -9,9 +9,9 @@ Motherboard m;
 
 void test_cpu() {
     m.getRAM()->setMemory(0, 0x4B060000);
-    m.getRAM()->printRam();
-    //int retval = m.getRAM()->getMemory(0).ToInt();
-    //cout << retval << endl;
+    m.getCPU()->cycle();
+    //m.getRAM()->printRam();
+    cout << m.getRAM()->getMemory(0).ToString() << endl;
 }
 
 int main() {

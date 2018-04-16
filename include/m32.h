@@ -9,7 +9,7 @@ using namespace std;
 class m32 {
 
 private:
-    bitset<31> memory;
+    bitset<32> memory;
 
 public:
     m32() {}

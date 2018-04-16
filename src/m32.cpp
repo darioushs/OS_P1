@@ -74,7 +74,8 @@ int m32::GetDecimal(int lowerBit, int higherBit) {
 }
 
 int m32::ToInt() {
-    return GetDecimal(0, 15);
+    return (int)(memory.to_ulong());
+    //return GetDecimal(0, 15);
 }
 
 string m32::ToString() {
