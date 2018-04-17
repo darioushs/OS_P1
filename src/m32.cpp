@@ -56,7 +56,7 @@ void m32::SetHex(int hex) {
     ss >> n;
     bitset<32> b(n);
     memory = b;
-    cout << "binary is: " << b << endl;
+    //cout << "binary is: " << b << endl;
 }
 
 int m32::GetBit(int index) {

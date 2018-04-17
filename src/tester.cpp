@@ -3,15 +3,21 @@
 #include "m32.h"
 #include "Motherboard.h"
 
+
 using namespace std;
 
 Motherboard m;
 
 void test_cpu() {
-    m.getRAM()->setMemory(0, 0x4B060000);
+    m.getCPU()->setProgramCounter(4);
+    //m.getRAM()->setMemory(0, 0x4B060000);
+    m.getRAM()->setMemory(4, 0x4B340000);
+    cout << m.getRAM()->getMemory(4).ToString() << endl;
+    //m.getRAM()->setMemory(8, 0x4B250000);
     m.getCPU()->cycle();
+    //m.getCPU()->cycle();    //m.getCPU()->cycle();
+    m.getCPU()->displayAllRegisters();
     //m.getRAM()->printRam();
-    cout << m.getRAM()->getMemory(0).ToString() << endl;
 }
 
 int main() {

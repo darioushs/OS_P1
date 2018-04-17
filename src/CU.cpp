@@ -171,6 +171,7 @@ CU::OPCODES CU::getOpCode(m32 instruction)
 
 void CU::decode(m32 instruction)
 {
+    cout << "decoding" << endl;
     CU::InstructionTypes instructionType = getInstructionType(instruction);
     if (instructionType == CU::InstructionTypes::Arithmetic)
     {
@@ -192,4 +193,8 @@ void CU::decode(m32 instruction)
 
 void CU::setProgramCounter(int input) {
     cpuMemory->programCounter = input;
+}
+
+void CU::test() {
+    cout << "test" << endl;
 }

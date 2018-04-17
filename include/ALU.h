@@ -8,7 +8,10 @@
 class ALU {
 public:
     ALU();
-    ALU(RAM* Ram, CpuMem* CpuMemory);
+    ALU(RAM* Ram, CpuMem* CpuMemory) {
+        memory = CpuMemory;
+        ram = Ram;
+    }
     // Arhitmetic Instructions
     int ADD(int sReg, int dReg);
     int SUB(int sReg, int dReg);
@@ -26,7 +29,6 @@ public:
     int ST(int sReg, int memLocation);
     int LD(int memLocation, int sReg);
 
-    void displayAllRegisters();
     void setRegister(int registerNumber, int value);
 
 private:

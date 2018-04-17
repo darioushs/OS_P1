@@ -64,6 +64,7 @@ public:
     int getRegisterValue(int registerNumber); // Retrieves the value stored in a register for testing purpose
     void setProgramCounter(int location);
     void setRam(RAM* Ram) { ram = Ram; }
+    void test();
 };
 
 #endif // ALU_H
