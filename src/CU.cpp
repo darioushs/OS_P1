@@ -25,7 +25,7 @@ void CU::resolveArithmetic(m32 instruction)
     switch (OPCode)
     {
     case OPCODES::ADD:
-        operationResult = alu->ADD(s1Reg, dReg);
+        operationResult = alu->ADD(s1Reg, s2Reg, dReg);
         break;
     case OPCODES::SUB:
         operationResult = alu->SUB(s1Reg, dReg);

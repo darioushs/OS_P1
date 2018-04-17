@@ -12,7 +12,7 @@ private:
     ALU alu;
     CU cu;
     RAM* ram;
-    CpuMem cpuMemory;
+    CpuMem* cpuMemory;
 
 public:
     CPU() {};
@@ -22,6 +22,8 @@ public:
     void setProgramCounter(int pc);
     void configureRegisters(m32* registers);
     void displayAllRegisters();
+    CpuMem* getCpuMem(); // For testing
+    ALU* getAlu() { return &alu; } // For testing
 };
 
 

@@ -13,7 +13,7 @@ public:
         ram = Ram;
     }
     // Arhitmetic Instructions
-    int ADD(int sReg, int dReg);
+    int ADD(int sReg1, int sReg2, int dReg);
     int SUB(int sReg, int dReg);
     int MUL(int sReg, int dReg);
     int DIV(int sReg, int dReg);
@@ -30,6 +30,7 @@ public:
     int LD(int memLocation, int sReg);
 
     void setRegister(int registerNumber, int value);
+    CpuMem* getMemory() { return memory; } // For testing
 
 private:
     int numberOfRegisters = 16;

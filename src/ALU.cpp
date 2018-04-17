@@ -7,8 +7,11 @@ ALU::ALU() {
 }
 
 
-int ALU::ADD(int sReg, int dReg) {
-    memory->set_general_purpose_register(dReg, memory->get_general_purpose_register(sReg) + memory->get_general_purpose_register(dReg));
+int ALU::ADD(int sReg1, int sReg2, int dReg) {
+    //memory->set_general_purpose_register(dReg, memory->get_general_purpose_register(sReg) + memory->get_general_purpose_register(dReg));
+    m32 value1 = memory->get_general_purpose_register(sReg1);
+    m32 value2 = memory->get_general_purpose_register(sReg2);
+    memory->set_general_purpose_register(dReg, value1 + value2);
     return 1;
 }
 
