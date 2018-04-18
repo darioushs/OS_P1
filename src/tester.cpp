@@ -26,7 +26,8 @@ void test_cpu_memory() {
     cout << "ALU Register 2 is = " << m.getCPU()->getAlu()->getMemory()->get_general_purpose_register(2).ToInt() << endl;
     cout << "CPU register 2 is = " << m.getCPU()->getCpuMem()->get_general_purpose_register(2).ToInt() << endl;
     m.getCPU()->getCpuMem()->set_general_purpose_register(3, m32(7));
-    m.getRAM()->setMemory(0, 52340000);
+    m.getRAM()->setMemory(0, 0x5234000);
+    cout << m.getCPU()->getCpuMem() << endl;
     m.getCPU()->cycle();
     cout << "Register 4 is = " <<  m.getCPU()->getCpuMem()->get_general_purpose_register(4).ToInt() << endl;
 }

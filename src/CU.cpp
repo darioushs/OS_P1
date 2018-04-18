@@ -166,20 +166,22 @@ CU::InstructionTypes CU::getInstructionType(m32 instruction)
 
 CU::OPCODES CU::getOpCode(m32 instruction)
 {
-    return static_cast<OPCODES>(instruction.GetDecimal(24, 29) - 1);
+    return static_cast<OPCODES>(instruction.GetDecimal(24, 29));
 }
 
 void CU::decode(m32 instruction)
 {
-    cout << "decoding" << endl;
+    cout << "decoding -> " << instruction.ToString() << endl;
     CU::InstructionTypes instructionType = getInstructionType(instruction);
     if (instructionType == CU::InstructionTypes::Arithmetic)
     {
         resolveArithmetic(instruction);
+        cout << "Arithmetic" << endl;
     }
     else if (instructionType == CU::InstructionTypes::Conditional)
     {
         resolveConditional(instruction);
+        cout << "Conditional" << endl;
     }
     else if (instructionType == CU::InstructionTypes::IO)
     {

@@ -1,6 +1,7 @@
 #ifndef ALU_H
 #define ALU_H
 
+#include <iostream>
 #include "m32.h"
 #include "CpuMem.h"
 #include "RAM.h"
@@ -11,6 +12,7 @@ public:
     ALU(RAM* Ram, CpuMem* CpuMemory) {
         memory = CpuMemory;
         ram = Ram;
+        std::cout << memory << endl;
     }
     // Arhitmetic Instructions
     int ADD(int sReg1, int sReg2, int dReg);

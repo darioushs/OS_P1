@@ -9,8 +9,10 @@ ALU::ALU() {
 
 int ALU::ADD(int sReg1, int sReg2, int dReg) {
     //memory->set_general_purpose_register(dReg, memory->get_general_purpose_register(sReg) + memory->get_general_purpose_register(dReg));
+    cout << memory;
     m32 value1 = memory->get_general_purpose_register(sReg1);
     m32 value2 = memory->get_general_purpose_register(sReg2);
+    //cout << "adding " << value1.ToInt() << " to " << value2.ToInt() << endl;
     memory->set_general_purpose_register(dReg, value1 + value2);
     return 1;
 }

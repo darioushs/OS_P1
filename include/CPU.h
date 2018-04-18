@@ -9,7 +9,7 @@
 
 class CPU {
 private:
-    ALU alu;
+    ALU* alu;
     CU cu;
     RAM* ram;
     CpuMem* cpuMemory;
@@ -23,7 +23,7 @@ public:
     void configureRegisters(m32* registers);
     void displayAllRegisters();
     CpuMem* getCpuMem(); // For testing
-    ALU* getAlu() { return &alu; } // For testing
+    ALU* getAlu() { return alu; } // For testing
 };
 
 

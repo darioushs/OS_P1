@@ -5,8 +5,8 @@
 CPU::CPU(RAM* Ram) {
     ram = Ram;
     cpuMemory = new CpuMem();
-    alu = ALU(Ram, cpuMemory);
-    cu = CU(Ram, &alu);
+    alu = new ALU(Ram, cpuMemory);
+    cu = CU(Ram, alu);
 }
 
 void CPU::setProgramCounter(int pc) {
@@ -26,7 +26,7 @@ void CPU::cycle() {
 
 void CPU::configureRegisters(m32* registers) {
     for (int i = 0; i < 16; i++) {
-        alu.setRegister(i, registers->GetDecimal(0,15));
+        alu->setRegister(i, registers->GetDecimal(0,15));
         registers++;
     }
 }
