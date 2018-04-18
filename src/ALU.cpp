@@ -15,10 +15,10 @@ int ALU::ADD(int sReg1, int sReg2, int dReg) {
 }
 
 int ALU::SUB(int sReg1, int sReg2, int dReg) {
-    //memory->set_general_purpose_register(dReg, memory->get_general_purpose_register(sReg) - memory->get_general_purpose_register(dReg));
+    cout << "YPPOOKOIPO{AISPD";
     m32 value1 = memory->get_general_purpose_register(sReg1);
     m32 value2 = memory->get_general_purpose_register(sReg2);
-    memory->set_general_purpose_register(dReg, value1 + value2);
+    memory->set_general_purpose_register(dReg, value1 - value2);
     return 1;
 }
 
@@ -30,7 +30,7 @@ int ALU::MUL(int sReg1, int sReg2, int dReg) {
     return 1;
 }
 
-int ALU::DIV(int sReg, int dReg) {
+int ALU::DIV(int sReg1, int sReg2, int dReg) {
     //memory->set_general_purpose_register(dReg, memory->get_general_purpose_register(sReg) / memory->get_general_purpose_register(dReg));
     m32 value1 = memory->get_general_purpose_register(sReg1);
     m32 value2 = memory->get_general_purpose_register(sReg2);

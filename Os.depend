@@ -214,7 +214,7 @@
 	<assert.h>
 	"RAM.h"
 
-1524020571 source:c:\users\somebody\documents\github\os_p1\src\tester.cpp
+1524021726 source:c:\users\somebody\documents\github\os_p1\src\tester.cpp
 	<iostream>
 	"CPU.h"
 	"m32.h"
@@ -270,7 +270,7 @@
 	"PriorityScheduler.h"
 	"Loader.h"
 
-1524020681 c:\users\somebody\documents\github\os_p1\include\alu.h
+1524020973 c:\users\somebody\documents\github\os_p1\include\alu.h
 	<iostream>
 	"m32.h"
 	"CpuMem.h"
@@ -285,12 +285,12 @@
 	"RAM.h"
 	"ALU.h"
 
-1524020775 source:c:\users\somebody\documents\github\os_p1\src\alu.cpp
+1524021641 source:c:\users\somebody\documents\github\os_p1\src\alu.cpp
 	<iostream>
 	"ALU.h"
 	"m32.h"
 
-1524013188 source:c:\users\somebody\documents\github\os_p1\src\cu.cpp
+1524021402 source:c:\users\somebody\documents\github\os_p1\src\cu.cpp
 	<iostream>
 	<string>
 	<bitset>

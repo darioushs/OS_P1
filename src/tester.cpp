@@ -32,6 +32,15 @@ void test_cpu_memory() {
     cout << "Register 4 is = " <<  m.getCPU()->getCpuMem()->get_general_purpose_register(4).ToInt() << endl;
 }
 
+void test_alu_subtract() {
+    m.getCPU()->getCpuMem()->set_general_purpose_register(2, m32(5));
+    m.getCPU()->getCpuMem()->set_general_purpose_register(3, m32(3));
+    m.getRAM()->setMemory(0, 0x6234000);
+    m.getCPU()->cycle();
+    cout << "Register 4 = " << m.getCPU()->getCpuMem()->get_general_purpose_register(4).ToInt() << endl;
+    m.getCPU()->displayAllRegisters();
+}
+
 int main() {
     //m32 i;
     //CPU cpu;
@@ -47,6 +56,7 @@ int main() {
     m2.SetHex(5);
     m32 m3 = m1/m2;
     cout << "Result: " << m3.GetDecimal(0,31) << endl;*/
-    test_cpu();
+    //test_cpu();
     //test_cpu_memory();
+    test_alu_subtract();
 }
