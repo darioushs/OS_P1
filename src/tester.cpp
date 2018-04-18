@@ -50,7 +50,7 @@ void test_alu_subtract() {
 }
 
 void test_alu_MOVI() {
-    m.getRAM()->setMemory(0, 0x4B0A0004);
+    m.getRAM()->setMemory(0, 0x4B020003);
     m.getCPU()->cycle();
     cout << "Register 7 is = " << m.getCPU()->getCpuMem()->get_general_purpose_register(7).ToInt() << endl;
     printCpuMemory();
@@ -69,7 +69,14 @@ m.getRAM()->setMemory(4, 0x4D070006);
 }
 
 void test_alu_DIVI() {
-    m.getRAM()->setMemory(4, 0x4e700002);
+    m.getRAM()->setMemory(4, 0x4E070002);
+    m.getCPU()->cycle();
+    printCpuMemory();
+}
+
+
+void test_alu_SLTI() {
+    m.getRAM()->setMemory(4, 0x51120002);
     m.getCPU()->cycle();
     printCpuMemory();
 }
@@ -92,8 +99,9 @@ int main() {
     //test_cpu();
     //test_cpu_memory();
     //test_alu_subtract();
-    //test_alu_MOVI();
-    test_alu_ADDI();
+    test_alu_MOVI();
+    //test_alu_ADDI();
+    test_alu_SLTI();
     //test_alu_MULI();
     //test_alu_DIVI();
 }

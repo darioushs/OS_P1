@@ -79,7 +79,15 @@ int ALU::LDI(int dReg, int data) {
     memory->set_general_purpose_register(dReg, ram->getMemory(data));
 }
 
-int ALU::SLTI(int bReg,int dReg, int sReg) {
+int ALU::SLTI(int bReg,int dReg, int data) {
+    if (bReg < data)
+    {
+        memory->set_general_purpose_register(dReg, 1);
+
+    }
+    else {
+        memory->set_general_purpose_register(dReg, 0);
+    }
 
 }
 

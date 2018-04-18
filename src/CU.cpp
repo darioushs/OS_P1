@@ -53,6 +53,7 @@ void CU::resolveConditional(m32 instruction) {
     int dataDecimal = instruction.GetDecimal(0, 15);
     m32 data(dataDecimal);
     OPCODES Opcode = getOpCode(instruction);
+
     switch (Opcode) {
         case MOVI:  //Transfers address/data directly into register
             if(dataDecimal == 0) {
@@ -85,6 +86,7 @@ void CU::resolveConditional(m32 instruction) {
             //dReg = 1;
             //else
             //dReg = 0;
+            alu->SLTI(bReg, dReg, dataDecimal);
             break;
         case BEQ:
             operationResult = alu->BEQ(bReg, dReg, dataDecimal);
@@ -179,20 +181,20 @@ void CU::decode(m32 instruction)
     if (instructionType == CU::InstructionTypes::Arithmetic)
     {
         resolveArithmetic(instruction);
-        //cout << "Arithmetic" << endl;
+        cout << "Arithmetic" << endl;
     }
     else if (instructionType == CU::InstructionTypes::Conditional)
     {
         resolveConditional(instruction);
-        //cout << "Conditional" << endl;
+        cout << "Conditional" << endl;
     }
     else if (instructionType == CU::InstructionTypes::IO)
     {
-        //cout << "IO" << endl;
+        cout << "IO" << endl;
     }
     else if (instructionType == CU::InstructionTypes::Unconditional)
     {
         resolveUnConditional(instruction);
-        //cout << "Unconditional Love!! " << endl;
+        cout << "Unconditional Love!! " << endl;
     }
 }
