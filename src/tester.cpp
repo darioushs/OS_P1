@@ -1,12 +1,20 @@
 #include <iostream>
 #include "CPU.h"
-#include "m32.h"
 #include "Motherboard.h"
 
 
 using namespace std;
 
 Motherboard m;
+
+void printCpuMemory() {
+    cout << "------------------------------------------------" << endl;
+    m.getCPU()->displayAllRegisters();
+}
+
+void printRam() {
+    m.getRAM()->printRam();
+}
 
 void test_cpu() {
     m.getCPU()->setProgramCounter(4);
@@ -41,6 +49,31 @@ void test_alu_subtract() {
     m.getCPU()->displayAllRegisters();
 }
 
+void test_alu_MOVI() {
+    m.getRAM()->setMemory(0, 0x4B700006);
+    m.getCPU()->cycle();
+    cout << "Register 7 is = " << m.getCPU()->getCpuMem()->get_general_purpose_register(7).ToInt() << endl;
+    printCpuMemory();
+}
+
+void test_alu_ADDI() {
+    m.getRAM()->setMemory(4, 0x4c700004);
+    m.getCPU()->cycle();
+    printCpuMemory();
+}
+
+void test_alu_MULI() {
+m.getRAM()->setMemory(4, 0x4d700006);
+    m.getCPU()->cycle();
+    printCpuMemory();
+}
+
+void test_alu_DIVI() {
+    m.getRAM()->setMemory(4, 0x4e700002);
+    m.getCPU()->cycle();
+    printCpuMemory();
+}
+
 int main() {
     //m32 i;
     //CPU cpu;
@@ -58,5 +91,9 @@ int main() {
     cout << "Result: " << m3.GetDecimal(0,31) << endl;*/
     //test_cpu();
     //test_cpu_memory();
-    test_alu_subtract();
+    //test_alu_subtract();
+    test_alu_MOVI();
+    //test_alu_ADDI();
+    //test_alu_MULI();
+    test_alu_DIVI();
 }

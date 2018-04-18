@@ -1,6 +1,5 @@
 #include <iostream>
 #include "CPU.h"
-#include "CpuMem.h"
 
 CPU::CPU(RAM* Ram) {
     ram = Ram;
@@ -14,14 +13,12 @@ void CPU::setProgramCounter(int pc) {
 }
 
 m32 CPU::fetch() {
-    //cout << "At program counter " << cpuMemory.programCounter << " fetched instruction = " << ram->getMemory(cpuMemory.programCounter).ToString() << endl;;
     return ram->getMemory(cpuMemory->programCounter);
 }
 
 void CPU::cycle() {
     cu.decode(fetch());
-    cpuMemory->programCounter++;
-    cout << "Program counter at: " << cpuMemory->programCounter << endl;
+    cpuMemory->programCounter += 4;
 }
 
 void CPU::configureRegisters(m32* registers) {

@@ -1,9 +1,6 @@
 #include <iostream>
-#include <string>
 #include <bitset>
 #include "CU.h"
-#include "CPU.h"
-#include "m32.h"
 
 using namespace std;
 
@@ -22,47 +19,46 @@ void CU::resolveArithmetic(m32 instruction)
     int s2Reg = instruction.GetDecimal(16, 19);
     int dReg = instruction.GetDecimal(12, 15);
     int OPCode = getOpCode(instruction);
-    switch (OPCode)
-    {
-    case OPCODES::ADD:
-        operationResult = alu->ADD(s1Reg, s2Reg, dReg);
-        break;
-    case OPCODES::SUB:
-        operationResult = alu->SUB(s1Reg, s2Reg, dReg);
-        break;
-    case OPCODES::MUL:
-        operationResult = alu->MUL(s1Reg, s2Reg, dReg);
-        break;
-    case OPCODES::DIV:
-        operationResult = alu->DIV(s1Reg, s2Reg, dReg);
-        break;
-    case OPCODES::MOV:
-        operationResult = alu->MOV(s1Reg, dReg);
-        break;
-    case OPCODES::SLT:   //Load content of address into reg
-
-        break;
+    switch (OPCode) {
+        case OPCODES::ADD:
+            operationResult = alu->ADD(s1Reg, s2Reg, dReg);
+            break;
+        case OPCODES::SUB:
+            operationResult = alu->SUB(s1Reg, s2Reg, dReg);
+            break;
+        case OPCODES::MUL:
+            operationResult = alu->MUL(s1Reg, s2Reg, dReg);
+            break;
+        case OPCODES::DIV:
+            operationResult = alu->DIV(s1Reg, s2Reg, dReg);
+            break;
+        case OPCODES::MOV:
+            operationResult = alu->MOV(s1Reg, dReg);
+            break;
+        case OPCODES::SLT:   //Load content of address into reg
+            break;
+        case OPCODES::AND:
+            operationResult = alu->AND(s1Reg, s2Reg, dReg);
+            break;
+        case OPCODES::OR:
+            operationResult = alu->OR(s1Reg, s2Reg, dReg);
+        default:
+            cout << "Unrecognized OPCODE" << endl;
     }
 }
 
-void CU::resolveConditional(m32 instruction)
-{
+void CU::resolveConditional(m32 instruction) {
     int bReg = instruction.GetDecimal(20, 23);
     int dReg = instruction.GetDecimal(16, 19);
-    cout << "B-Register: " << bReg << endl;
-    cout << "D-Register: " << dReg << endl;
     int dataDecimal = instruction.GetDecimal(0, 15);
-    cout << "Data is: " << dataDecimal << endl;
     m32 data(dataDecimal);
     OPCODES Opcode = getOpCode(instruction);
-    if (dataDecimal == 0)
-    {
-        cout << "OPCODE: " << Opcode << endl;
-        switch (Opcode)
-        {
+    switch (Opcode) {
         case MOVI:  //Transfers address/data directly into register
-            //ALU.setRegister(bReg, dataDecimal);
-            alu->MOVI(bReg, dReg);
+            operationResult = alu->MOVI(bReg, dataDecimal);
+            break;
+        case ADDI:  //Add data value directly with content of register
+            operationResult = alu->ADDI(bReg, dataDecimal);
             break;
         case ST:    //Stores content of reg into address
             //setAddress(CpuMem.get_general_purpose_register(bReg), address);
@@ -70,45 +66,41 @@ void CU::resolveConditional(m32 instruction)
         case LW:    //Load content of address into reg
             //ALUsetRegister(bReg, dataDecimal);
             break;
-        case ADDI:  //Add data value directly with content of register
-            //register[bReg] += data;
-            //ALU.setRegister(bReg, (CpuMem.get_general_purpose_register(bReg) + dataDecimal));
-            //alu.ADDI(bReg, dataDecimal);
-            break;
         case MULI:  //Multiplies data value directly with content of register
-            //ALU.setRegister(bReg, (CpuMem.get_general_purpose_register(bReg) * dataDecimal));
+            operationResult = alu->MULI(bReg, dataDecimal);
             break;
         case DIVI:  //Divides data value directly with content of register
-            //ALU.setRegister(bReg, (CpuMem.get_general_purpose_register(bReg) / dataDecimal));
+            operationResult = alu->DIVI(bReg, dataDecimal);
             break;
         case LDI:
             //ALU.setRegister(bReg, dataDecimal);
             break;
         case SLTI:
             //if(bReg < data)
-                //dReg = 1;
+            //dReg = 1;
             //else
-                //dReg = 0;
+            //dReg = 0;
             break;
         case BEQ:
-
+            operationResult = alu->BEQ(bReg, dReg, dataDecimal);
             break;
         case BNE:
-
+            operationResult = alu->BNE(bReg, dReg, dataDecimal);
             break;
         case BEZ:
-
+            operationResult = alu->BEZ(bReg, dataDecimal);
             break;
         case BNZ:
-
+            operationResult = alu->BNZ(bReg, dataDecimal);
             break;
         case BGZ:
-
+            operationResult = alu->BGZ(bReg, dataDecimal);
             break;
         case BLZ:
-
+            operationResult = alu->BLZ(bReg, dataDecimal);
             break;
-        }
+        default:
+            cout << "Unrecognized OPCODE" << endl;
     }
 }
 
@@ -119,13 +111,15 @@ void CU::resolveIO(m32 instruction) {
     OPCODES Opcode = getOpCode(instruction);
 
     switch (Opcode) {
-    case RD:    //Input buffer written to accumulator
-        //ALU.setRegister(0, data);
-        break;
-    case WR:
-        //Accumulator written to output buffer
-        //outputBuffer = CpuMem.get_general_purpose_register(0);
-        break;
+        case RD:    //Input buffer written to accumulator
+            //ALU.setRegister(0, data);
+            break;
+        case WR:
+            //Accumulator written to output buffer
+            //outputBuffer = CpuMem.get_general_purpose_register(0);
+            break;
+        default:
+            cout << "Unrecognized OPCODE" << endl;
     }
 }
 
@@ -133,14 +127,19 @@ void CU::resolveUnConditional(m32 instruction) {
     int address = instruction.GetDecimal(0, 23);
     OPCODES Opcode = getOpCode(instruction);
     switch (Opcode) {
-    case HLT:
-        //Program is donezo. Set program's process state to terminated.
-        break;
-    case NOP:
-        break;
-    case JMP:
-        //jump to address. this isn't in the first 4 programs in AssemblyLanguageCode
-        break;
+        case HLT:
+            //Program is donezo. Set program's process state to terminated.
+            operationResult = alu->HLT();
+            break;
+        case NOP:
+            // Literally do nothing
+            break;
+        case JMP:
+            //jump to address. this isn't in the first 4 programs in AssemblyLanguageCode
+            alu->JMP(address);
+            break;
+        default:
+            cout << "Unrecognized OPCODE" << endl;
     }
 }
 
@@ -171,32 +170,24 @@ CU::OPCODES CU::getOpCode(m32 instruction)
 
 void CU::decode(m32 instruction)
 {
-    cout << "decoding -> " << instruction.ToString() << endl;
     CU::InstructionTypes instructionType = getInstructionType(instruction);
     if (instructionType == CU::InstructionTypes::Arithmetic)
     {
         resolveArithmetic(instruction);
-        cout << "Arithmetic" << endl;
+        //cout << "Arithmetic" << endl;
     }
     else if (instructionType == CU::InstructionTypes::Conditional)
     {
         resolveConditional(instruction);
-        cout << "Conditional" << endl;
+        //cout << "Conditional" << endl;
     }
     else if (instructionType == CU::InstructionTypes::IO)
     {
-        cout << "IO" << endl;
+        //cout << "IO" << endl;
     }
     else if (instructionType == CU::InstructionTypes::Unconditional)
     {
-        cout << "Unconditional Love!! " << endl;
+        resolveUnConditional(instruction);
+        //cout << "Unconditional Love!! " << endl;
     }
-}
-
-void CU::setProgramCounter(int input) {
-    cpuMemory->programCounter = input;
-}
-
-void CU::test() {
-    cout << "test" << endl;
 }

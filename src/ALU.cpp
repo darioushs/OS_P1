@@ -15,7 +15,6 @@ int ALU::ADD(int sReg1, int sReg2, int dReg) {
 }
 
 int ALU::SUB(int sReg1, int sReg2, int dReg) {
-    cout << "YPPOOKOIPO{AISPD";
     m32 value1 = memory->get_general_purpose_register(sReg1);
     m32 value2 = memory->get_general_purpose_register(sReg2);
     memory->set_general_purpose_register(dReg, value1 - value2);
@@ -23,7 +22,6 @@ int ALU::SUB(int sReg1, int sReg2, int dReg) {
 }
 
 int ALU::MUL(int sReg1, int sReg2, int dReg) {
-    //memory->set_general_purpose_register(dReg, memory->get_general_purpose_register(sReg) * memory->get_general_purpose_register(dReg));
     m32 value1 = memory->get_general_purpose_register(sReg1);
     m32 value2 = memory->get_general_purpose_register(sReg2);
     memory->set_general_purpose_register(dReg, value1 * value2);
@@ -31,7 +29,6 @@ int ALU::MUL(int sReg1, int sReg2, int dReg) {
 }
 
 int ALU::DIV(int sReg1, int sReg2, int dReg) {
-    //memory->set_general_purpose_register(dReg, memory->get_general_purpose_register(sReg) / memory->get_general_purpose_register(dReg));
     m32 value1 = memory->get_general_purpose_register(sReg1);
     m32 value2 = memory->get_general_purpose_register(sReg2);
     memory->set_general_purpose_register(dReg, value1 / value2);
@@ -55,14 +52,27 @@ int ALU::OR(int sReg1, int sReg2, int dReg) {
     memory->set_general_purpose_register(dReg, (arg1 | arg2));
 }
 
-int ALU::ADDI(int sReg, int value) {
-    memory->set_general_purpose_register(sReg, m32(value));
+int ALU::ADDI(int sReg, int data) {
+    int currentValue = memory->get_general_purpose_register(sReg).ToInt();
+    memory->set_general_purpose_register(sReg, currentValue + data);
     return 1;
 }
 
-int ALU::MOVI(int sReg, int dReg) {
-    memory->set_general_purpose_register(dReg, memory->get_general_purpose_register(sReg));
+int ALU::MULI(int sReg, int data) {
+    int currentValue = memory->get_general_purpose_register(sReg).ToInt();
+    memory->set_general_purpose_register(sReg, currentValue * data);
     return 1;
+}
+
+int ALU::MOVI(int sReg, int data) {
+    memory->set_general_purpose_register(sReg, data);
+    return 1;
+}
+
+int ALU::DIVI(int sReg, int data) {
+    int currentValue = memory->get_general_purpose_register(sReg).ToInt();
+    memory->set_general_purpose_register(sReg, currentValue / data);
+    return 0;
 }
 
 int ALU::ST(int sReg, int memLocation) {
@@ -78,3 +88,63 @@ int ALU::LD(int memLocation, int sReg) {
 void ALU::setRegister(int registerNumber, int value) {
     memory->set_general_purpose_register(registerNumber, value);
 }
+
+// **Conditional Jump Instructions**
+
+int ALU::BEQ(int bReg, int dReg, int jmpTo) {
+    if (memory->get_general_purpose_register(bReg).ToInt() == memory->get_general_purpose_register(dReg).ToInt()) {
+        memory->programCounter = jmpTo;
+    }
+    return 1;
+}
+
+int ALU::BLZ(int bReg, int jmpTo) {
+    if (memory->get_general_purpose_register(bReg).ToInt() < 0) {
+        memory->programCounter = jmpTo;
+    }
+    return 1;
+}
+
+int ALU::BGZ(int bReg, int jmpTo) {
+    if (memory->get_general_purpose_register(bReg).ToInt() > 0) {
+        memory->programCounter = jmpTo;
+    }
+    return 1;
+}
+
+int ALU::BNZ(int bReg, int jmpTo) {
+    if (memory->get_general_purpose_register(bReg).ToInt() != 0) {
+        memory->programCounter = jmpTo;
+    }
+    return 1;
+}
+
+int ALU::BEZ(int bReg, int jmpTo) {
+    if (memory->get_general_purpose_register(bReg).ToInt() == 0) {
+        memory->programCounter = jmpTo;
+    }
+    return 1;
+}
+
+int ALU::BNE(int bReg, int dReg, int jmpTo) {
+    if (memory->get_general_purpose_register(bReg).ToInt() != memory->get_general_purpose_register(dReg).ToInt()) {
+        memory->programCounter = jmpTo;
+    }
+}
+
+// **Unconditional Jump**
+
+int ALU::JMP(int address) {
+    memory->programCounter = address;
+    return 1;
+}
+
+int ALU::HLT() {
+    return 0;
+}
+
+
+
+
+
+

@@ -1,8 +1,5 @@
 #include <iostream>
-#include <sstream>
-#include <string>
-#include <math.h>
-#include <assert.h>
+#include <cassert>
 #include "RAM.h"
 
 using namespace std;

@@ -1,0 +1,3 @@
+C:/Users/somebody/Documents/GitHub/OS_P1/cmake-build-debug/CMakeFiles/OS_P1.dir
+C:/Users/somebody/Documents/GitHub/OS_P1/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/somebody/Documents/GitHub/OS_P1/cmake-build-debug/CMakeFiles/rebuild_cache.dir

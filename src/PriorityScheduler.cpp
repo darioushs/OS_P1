@@ -73,7 +73,7 @@ int PriorityScheduler::loadNextProcess() {
     int highestPriorityProcess;
     highestPriorityProcess = getHighestPriorityProcessIndex();
     PCB* processToLoad = readyQueue[highestPriorityProcess];
-    if (processToLoad->PC = processToLoad->codeSize) { // If the process is finished, removed it from the ready queue and call this function again
+    if (processToLoad->PC == processToLoad->codeSize) { // If the process is finished, removed it from the ready queue and call this function again
         readyQueue.erase(readyQueue.begin() + highestPriorityProcess);
         return loadNextProcess();
     }
