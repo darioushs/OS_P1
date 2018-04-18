@@ -45,10 +45,10 @@ public:
     int BNZ(int bReg, int jmpTo);
     int BGZ(int bReg, int jmpTo);
     int BLZ(int bReg, int jmpTo);
-    int SLTI(int bReg, int dReg, int sReg);
+    int SLTI(int bReg, int dReg, int data);
 
     int ST(int dReg, int memLocation); // ?
-    int LD(int memLocation, int sReg); // ?
+    int LW(int memLocation, int sReg); // ?
 
     // Unconditional jump
     int JMP(int address);
