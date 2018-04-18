@@ -47,6 +47,6 @@ int main() {
     m2.SetHex(5);
     m32 m3 = m1/m2;
     cout << "Result: " << m3.GetDecimal(0,31) << endl;*/
-    //test_cpu();
-    test_cpu_memory();
+    test_cpu();
+    //test_cpu_memory();
 }

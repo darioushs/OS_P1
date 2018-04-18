@@ -47,7 +47,7 @@ void CU::resolveArithmetic(m32 instruction)
 
 void CU::resolveConditional(m32 instruction)
 {
-    int bReg = instruction.GetDecimal(19, 23);
+    int bReg = instruction.GetDecimal(20, 23);
     int dReg = instruction.GetDecimal(16, 19);
     cout << "B-Register: " << bReg << endl;
     cout << "D-Register: " << dReg << endl;
@@ -55,7 +55,7 @@ void CU::resolveConditional(m32 instruction)
     cout << "Data is: " << dataDecimal << endl;
     m32 data(dataDecimal);
     OPCODES Opcode = getOpCode(instruction);
-    if (dReg == 0)
+    if (dataDecimal == 0)
     {
         cout << "OPCODE: " << Opcode << endl;
         switch (Opcode)
