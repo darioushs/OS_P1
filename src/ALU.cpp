@@ -79,8 +79,8 @@ int ALU::LDI(int dReg, int data) {
     memory->set_general_purpose_register(dReg, ram->getMemory(data));
 }
 
-int ALU::SLTI(int memLocation, int sReg) {
-    ram->setMemory(memLocation, memory->get_general_purpose_register(sReg).ToInt());
+int ALU::SLTI(int bReg,int dReg, int sReg) {
+
 }
 
 int ALU::ST(int sReg, int memLocation) {

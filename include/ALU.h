@@ -14,6 +14,12 @@ public:
         ram = Ram;
         std::cout << memory << endl;
     }
+
+    // I/O Instructions
+    int RD(int tReg1, int tReg2, int tAddr);
+    int WR(int tReg1, int tReg2, int tAddr);
+
+
     // Arhitmetic Instructions
     int ADD(int sReg1, int sReg2, int dReg);
     int SUB(int sReg1, int sReg2, int dReg);
@@ -24,16 +30,7 @@ public:
     int OR (int sReg1, int sReg2, int dReg);
     int SLT (int sReg1, int sReg2, int dReg); //todo
 
-
-    // Conditional Instructions
-    int BEQ(int bReg, int dReg, int jmpTo);
-    int BNE(int bReg, int dReg, int jmpTo);
-    int BEZ(int bReg, int jmpTo);
-    int BNZ(int bReg, int jmpTo);
-    int BGZ(int bReg, int jmpTo);
-    int BLZ(int bReg, int jmpTo);
-
-    // Immediate & Unconditional Instructions
+    // Immediate & Conditional Instructions
     int MOVI(int dReg, int data);
     int ADDI(int dReg, int data);
     int MULI(int dReg, int data);
@@ -41,15 +38,24 @@ public:
     //todo
     int LDI(int dReg, int data);
     //todo
-    int SLTI(int memLocation, int sReg);
+    // Conditional Instructions
+    int BEQ(int bReg, int dReg, int jmpTo);
+    int BNE(int bReg, int dReg, int jmpTo);
+    int BEZ(int bReg, int jmpTo);
+    int BNZ(int bReg, int jmpTo);
+    int BGZ(int bReg, int jmpTo);
+    int BLZ(int bReg, int jmpTo);
+    int SLTI(int bReg, int dReg, int sReg);
 
     int ST(int dReg, int memLocation); // ?
-    int LD(int memLocation, int sReg);
+    int LD(int memLocation, int sReg); // ?
 
-    // Conditional jump
+    // Unconditional jump
     int JMP(int address);
     int HLT();
 
+    // No operation
+    int NOP();
 
     void setRegister(int registerNumber, int value);
     CpuMem* getMemory() { return memory; } // For testing
