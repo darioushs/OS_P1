@@ -28,13 +28,13 @@ void CU::resolveArithmetic(m32 instruction)
         operationResult = alu->ADD(s1Reg, s2Reg, dReg);
         break;
     case OPCODES::SUB:
-        operationResult = alu->SUB(s1Reg, dReg);
+        operationResult = alu->SUB(s1Reg, s2Reg, dReg);
         break;
     case OPCODES::MUL:
-        operationResult = alu->MUL(s1Reg, dReg);
+        operationResult = alu->MUL(s1Reg, s2Reg, dReg);
         break;
     case OPCODES::DIV:
-        operationResult = alu->DIV(s1Reg, dReg);
+        operationResult = alu->DIV(s1Reg, s2Reg, dReg);
         break;
     case OPCODES::MOV:
         operationResult = alu->MOV(s1Reg, dReg);

@@ -1,7 +1,9 @@
 C:\Users\somebody\Documents\GitHub\OS_P1\src\tester.cpp:2:17: error: CPU.h: No such file or directory
 C:\Users\somebody\Documents\GitHub\OS_P1\src\tester.cpp:3:17: error: m32.h: No such file or directory
 C:\Users\somebody\Documents\GitHub\OS_P1\src\tester.cpp:4:25: error: Motherboard.h: No such file or directory
-C:\Users\somebody\Documents\GitHub\OS_P1\src\tester.cpp:5:25: error: //include/CPU: No such file or directory
 C:\Users\somebody\Documents\GitHub\OS_P1\src\tester.cpp:9: error: 'Motherboard' does not name a type
 C:\Users\somebody\Documents\GitHub\OS_P1\src\tester.cpp: In function 'void test_cpu()':
 C:\Users\somebody\Documents\GitHub\OS_P1\src\tester.cpp:12: error: 'm' was not declared in this scope
+C:\Users\somebody\Documents\GitHub\OS_P1\src\tester.cpp: In function 'void test_cpu_memory()':
+C:\Users\somebody\Documents\GitHub\OS_P1\src\tester.cpp:25: error: 'm' was not declared in this scope
+C:\Users\somebody\Documents\GitHub\OS_P1\src\tester.cpp:25: error: 'm32' was not declared in this scope

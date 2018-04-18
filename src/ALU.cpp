@@ -8,27 +8,33 @@ ALU::ALU() {
 
 
 int ALU::ADD(int sReg1, int sReg2, int dReg) {
-    //memory->set_general_purpose_register(dReg, memory->get_general_purpose_register(sReg) + memory->get_general_purpose_register(dReg));
-    cout << memory;
     m32 value1 = memory->get_general_purpose_register(sReg1);
     m32 value2 = memory->get_general_purpose_register(sReg2);
-    //cout << "adding " << value1.ToInt() << " to " << value2.ToInt() << endl;
     memory->set_general_purpose_register(dReg, value1 + value2);
     return 1;
 }
 
-int ALU::SUB(int sReg, int dReg) {
-    memory->set_general_purpose_register(dReg, memory->get_general_purpose_register(sReg) - memory->get_general_purpose_register(dReg));
+int ALU::SUB(int sReg1, int sReg2, int dReg) {
+    //memory->set_general_purpose_register(dReg, memory->get_general_purpose_register(sReg) - memory->get_general_purpose_register(dReg));
+    m32 value1 = memory->get_general_purpose_register(sReg1);
+    m32 value2 = memory->get_general_purpose_register(sReg2);
+    memory->set_general_purpose_register(dReg, value1 + value2);
     return 1;
 }
 
-int ALU::MUL(int sReg, int dReg) {
-    memory->set_general_purpose_register(dReg, memory->get_general_purpose_register(sReg) * memory->get_general_purpose_register(dReg));
+int ALU::MUL(int sReg1, int sReg2, int dReg) {
+    //memory->set_general_purpose_register(dReg, memory->get_general_purpose_register(sReg) * memory->get_general_purpose_register(dReg));
+    m32 value1 = memory->get_general_purpose_register(sReg1);
+    m32 value2 = memory->get_general_purpose_register(sReg2);
+    memory->set_general_purpose_register(dReg, value1 * value2);
     return 1;
 }
 
 int ALU::DIV(int sReg, int dReg) {
-    memory->set_general_purpose_register(dReg, memory->get_general_purpose_register(sReg) / memory->get_general_purpose_register(dReg));
+    //memory->set_general_purpose_register(dReg, memory->get_general_purpose_register(sReg) / memory->get_general_purpose_register(dReg));
+    m32 value1 = memory->get_general_purpose_register(sReg1);
+    m32 value2 = memory->get_general_purpose_register(sReg2);
+    memory->set_general_purpose_register(dReg, value1 / value2);
     return 1;
 }
 
@@ -72,4 +78,3 @@ int ALU::LD(int memLocation, int sReg) {
 void ALU::setRegister(int registerNumber, int value) {
     memory->set_general_purpose_register(registerNumber, value);
 }
-
