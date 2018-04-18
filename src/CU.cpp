@@ -36,6 +36,7 @@ void CU::resolveArithmetic(m32 instruction)
             operationResult = alu->MOV(s1Reg, dReg);
             break;
         case OPCODES::SLT:   //Load content of address into reg
+            operationResult = alu->SLT(s1Reg, s2Reg, dReg);
             break;
         case OPCODES::AND:
             operationResult = alu->AND(s1Reg, s2Reg, dReg);
@@ -123,12 +124,12 @@ void CU::resolveIO(m32 instruction) {
     switch (Opcode) {
         case RD:    //Input buffer written to accumulator
             //ALU.setRegister(0, data);
-            operationResult = alu->RD(reg1, reg2, data)
+            operationResult = alu->RD(reg1, reg2, data);
             break;
         case WR:
             //Accumulator written to output buffer
             //outputBuffer = CpuMem.get_general_purpose_register(0);
-            operationResult = alu->WR(reg1, reg2, data)
+            operationResult = alu->WR(reg1, reg2, data);
             break;
         default:
             cout << "Unrecognized OPCODE" << endl;

@@ -60,6 +60,10 @@ int ALU::OR(int sReg1, int sReg2, int dReg) {
     memory->set_general_purpose_register(dReg, (arg1 | arg2));
 }
 
+int ALU::SLT(int sReg1, int sReg2, int dReg) {
+
+}
+
 int ALU::ADDI(int dReg, int data) {
     int currentValue = memory->get_general_purpose_register(dReg).ToInt();
     memory->set_general_purpose_register(dReg, currentValue + data);
