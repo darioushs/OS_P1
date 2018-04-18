@@ -52,27 +52,35 @@ int ALU::OR(int sReg1, int sReg2, int dReg) {
     memory->set_general_purpose_register(dReg, (arg1 | arg2));
 }
 
-int ALU::ADDI(int sReg, int data) {
-    int currentValue = memory->get_general_purpose_register(sReg).ToInt();
-    memory->set_general_purpose_register(sReg, currentValue + data);
+int ALU::ADDI(int dReg, int data) {
+    int currentValue = memory->get_general_purpose_register(dReg).ToInt();
+    memory->set_general_purpose_register(dReg, currentValue + data);
     return 1;
 }
 
-int ALU::MULI(int sReg, int data) {
-    int currentValue = memory->get_general_purpose_register(sReg).ToInt();
-    memory->set_general_purpose_register(sReg, currentValue * data);
+int ALU::MULI(int dReg, int data) {
+    int currentValue = memory->get_general_purpose_register(dReg).ToInt();
+    memory->set_general_purpose_register(dReg, currentValue * data);
     return 1;
 }
 
-int ALU::MOVI(int sReg, int data) {
-    memory->set_general_purpose_register(sReg, data);
+int ALU::MOVI(int dReg, int data) {
+    memory->set_general_purpose_register(dReg, data);
     return 1;
 }
 
-int ALU::DIVI(int sReg, int data) {
-    int currentValue = memory->get_general_purpose_register(sReg).ToInt();
-    memory->set_general_purpose_register(sReg, currentValue / data);
+int ALU::DIVI(int dReg, int data) {
+    int currentValue = memory->get_general_purpose_register(dReg).ToInt();
+    memory->set_general_purpose_register(dReg, currentValue / data);
     return 0;
+}
+
+int ALU::LDI(int dReg, int data) {
+    memory->set_general_purpose_register(dReg, ram->getMemory(data));
+}
+
+int ALU::SLTI(int memLocation, int sReg) {
+    ram->setMemory(memLocation, memory->get_general_purpose_register(sReg).ToInt());
 }
 
 int ALU::ST(int sReg, int memLocation) {

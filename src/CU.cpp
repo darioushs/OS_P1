@@ -63,7 +63,7 @@ void CU::resolveConditional(m32 instruction) {
             }
             break;
         case ADDI:  //Add data value directly with content of register
-            operationResult = alu->ADDI(bReg, dataDecimal);
+            operationResult = alu->ADDI(dReg, dataDecimal);
             break;
         case ST:    //Stores content of reg into address
             //setAddress(CpuMem.get_general_purpose_register(bReg), address);
@@ -72,10 +72,10 @@ void CU::resolveConditional(m32 instruction) {
             //ALUsetRegister(bReg, dataDecimal);
             break;
         case MULI:  //Multiplies data value directly with content of register
-            operationResult = alu->MULI(bReg, dataDecimal);
+            operationResult = alu->MULI(dReg, dataDecimal);
             break;
         case DIVI:  //Divides data value directly with content of register
-            operationResult = alu->DIVI(bReg, dataDecimal);
+            operationResult = alu->DIVI(dReg, dataDecimal);
             break;
         case LDI:
             //ALU.setRegister(bReg, dataDecimal);

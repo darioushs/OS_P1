@@ -57,13 +57,13 @@ void test_alu_MOVI() {
 }
 
 void test_alu_ADDI() {
-    m.getRAM()->setMemory(4, 0x4c700004);
+    m.getRAM()->setMemory(0, 0x4C070004);
     m.getCPU()->cycle();
     printCpuMemory();
 }
 
 void test_alu_MULI() {
-m.getRAM()->setMemory(4, 0x4d700006);
+m.getRAM()->setMemory(4, 0x4D070006);
     m.getCPU()->cycle();
     printCpuMemory();
 }
@@ -92,8 +92,8 @@ int main() {
     //test_cpu();
     //test_cpu_memory();
     //test_alu_subtract();
-    test_alu_MOVI();
-    //test_alu_ADDI();
+    //test_alu_MOVI();
+    test_alu_ADDI();
     //test_alu_MULI();
     //test_alu_DIVI();
 }

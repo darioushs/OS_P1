@@ -22,6 +22,8 @@ public:
     int MOV(int sReg, int dReg);
     int AND(int sReg1, int sReg2, int dReg);
     int OR (int sReg1, int sReg2, int dReg);
+    int SLT (int sReg1, int sReg2, int dReg); //todo
+
 
     // Conditional Instructions
     int BEQ(int bReg, int dReg, int jmpTo);
@@ -32,11 +34,16 @@ public:
     int BLZ(int bReg, int jmpTo);
 
     // Immediate & Unconditional Instructions
-    int MOVI(int sReg, int data);
-    int ADDI(int sReg, int data);
-    int MULI(int sReg, int data);
-    int DIVI(int sReg, int data);
-    int ST(int sReg, int memLocation);
+    int MOVI(int dReg, int data);
+    int ADDI(int dReg, int data);
+    int MULI(int dReg, int data);
+    int DIVI(int dReg, int data);
+    //todo
+    int LDI(int dReg, int data);
+    //todo
+    int SLTI(int memLocation, int sReg);
+
+    int ST(int dReg, int memLocation); // ?
     int LD(int memLocation, int sReg);
 
     // Conditional jump
