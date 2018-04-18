@@ -55,7 +55,12 @@ void CU::resolveConditional(m32 instruction) {
     OPCODES Opcode = getOpCode(instruction);
     switch (Opcode) {
         case MOVI:  //Transfers address/data directly into register
-            operationResult = alu->MOVI(bReg, dataDecimal);
+            if(dataDecimal == 0) {
+                operationResult = alu->MOVI(dReg, bReg);
+            }
+            else {
+                operationResult = alu->MOVI(dReg, dataDecimal);
+            }
             break;
         case ADDI:  //Add data value directly with content of register
             operationResult = alu->ADDI(bReg, dataDecimal);

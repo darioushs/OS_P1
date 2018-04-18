@@ -50,7 +50,7 @@ void test_alu_subtract() {
 }
 
 void test_alu_MOVI() {
-    m.getRAM()->setMemory(0, 0x4B700006);
+    m.getRAM()->setMemory(0, 0x4B0A0004);
     m.getCPU()->cycle();
     cout << "Register 7 is = " << m.getCPU()->getCpuMem()->get_general_purpose_register(7).ToInt() << endl;
     printCpuMemory();
@@ -95,5 +95,5 @@ int main() {
     test_alu_MOVI();
     //test_alu_ADDI();
     //test_alu_MULI();
-    test_alu_DIVI();
+    //test_alu_DIVI();
 }
