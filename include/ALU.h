@@ -28,7 +28,7 @@ public:
     int MOV(int sReg1, int sReg2, int dReg);
     int AND(int sReg1, int sReg2, int dReg);
     int OR (int sReg1, int sReg2, int dReg);
-    int SLT (int sReg1, int sReg2, int dReg); //todo
+    int SLT (int sReg1, int sReg2, int dReg); //Sets the D-reg to 1 if  first S-reg is less than the B-reg; 0 otherwise
 
     // Immediate & Conditional Instructions
     int MOVI(int dReg, int data);
@@ -45,7 +45,7 @@ public:
     int BNZ(int bReg, int jmpTo);
     int BGZ(int bReg, int jmpTo);
     int BLZ(int bReg, int jmpTo);
-    int SLTI(int bReg, int dReg, int data);
+    int SLTI(int bReg, int dReg, int data); //Sets the D-reg to 1 if  first S-reg is less than a data; 0 otherwise
 
     int ST(int dReg, int memLocation); // ?
     int LW(int memLocation, int sReg); // ?

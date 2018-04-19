@@ -1,7 +1,9 @@
 #include <iostream>
 #include "CPU.h"
 #include "Motherboard.h"
-
+#include "Loader.h"
+#include "PriorityScheduler.h"
+#include "Driver.h"
 
 using namespace std;
 
@@ -81,6 +83,23 @@ void test_alu_SLTI() {
     printCpuMemory();
 }
 
+void test_loader() {
+    Loader loader;
+    Motherboard* m = new Motherboard();
+    PriorityScheduler* scheduler = new PriorityScheduler(m->getRAM(), m->getHDD(), m->getCPU());
+    loader.Load("Program-File.txt", m->getHDD(), scheduler);
+    m->getHDD()->printHDD();
+    //cout << "Number of PCBS" << scheduler->getNumberOfPcbs() << endl;
+    //scheduler->printAllPcbs();
+}
+
+void test_driver() {
+    Motherboard* m = new Motherboard();
+    PriorityScheduler* scheduler = new PriorityScheduler(m->getRAM(), m->getHDD(), m->getCPU());
+    Driver d(scheduler, m);
+    d.bootFromFile("Program-File.txt");
+}
+
 int main() {
     //m32 i;
     //CPU cpu;
@@ -99,14 +118,12 @@ int main() {
     //test_cpu();
     //test_cpu_memory();
     //test_alu_subtract();
-    test_alu_MOVI();
+    //test_alu_MOVI();
     //test_alu_ADDI();
-    test_alu_SLTI();
+    //test_alu_SLTI();
     //test_alu_MULI();
-<<<<<<< HEAD
-    test_alu_DIVI();
-    printRam();
-=======
     //test_alu_DIVI();
->>>>>>> 976f6284f30efe88d12b358c616623f5405670cb
+    //test_alu_DIVI();
+//976f6284f30efe88d12b358c616623f5405670cb
+    test_loader();
 }

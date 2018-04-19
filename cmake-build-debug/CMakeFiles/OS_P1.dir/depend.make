@@ -72,10 +72,16 @@ CMakeFiles/OS_P1.dir/src/IScheduler.cpp.obj: ../include/PCB.h
 CMakeFiles/OS_P1.dir/src/IScheduler.cpp.obj: ../include/m32.h
 CMakeFiles/OS_P1.dir/src/IScheduler.cpp.obj: ../src/IScheduler.cpp
 
+CMakeFiles/OS_P1.dir/src/Loader.cpp.obj: ../include/ALU.h
+CMakeFiles/OS_P1.dir/src/Loader.cpp.obj: ../include/CPU.h
+CMakeFiles/OS_P1.dir/src/Loader.cpp.obj: ../include/CU.h
+CMakeFiles/OS_P1.dir/src/Loader.cpp.obj: ../include/CpuMem.h
+CMakeFiles/OS_P1.dir/src/Loader.cpp.obj: ../include/Dispatcher.h
 CMakeFiles/OS_P1.dir/src/Loader.cpp.obj: ../include/HDD.h
 CMakeFiles/OS_P1.dir/src/Loader.cpp.obj: ../include/IScheduler.h
 CMakeFiles/OS_P1.dir/src/Loader.cpp.obj: ../include/Loader.h
 CMakeFiles/OS_P1.dir/src/Loader.cpp.obj: ../include/PCB.h
+CMakeFiles/OS_P1.dir/src/Loader.cpp.obj: ../include/PriorityScheduler.h
 CMakeFiles/OS_P1.dir/src/Loader.cpp.obj: ../include/ProcessPool.h
 CMakeFiles/OS_P1.dir/src/Loader.cpp.obj: ../include/RAM.h
 CMakeFiles/OS_P1.dir/src/Loader.cpp.obj: ../include/m32.h
@@ -127,9 +133,13 @@ CMakeFiles/OS_P1.dir/src/tester.cpp.obj: ../include/ALU.h
 CMakeFiles/OS_P1.dir/src/tester.cpp.obj: ../include/CPU.h
 CMakeFiles/OS_P1.dir/src/tester.cpp.obj: ../include/CU.h
 CMakeFiles/OS_P1.dir/src/tester.cpp.obj: ../include/CpuMem.h
+CMakeFiles/OS_P1.dir/src/tester.cpp.obj: ../include/Dispatcher.h
 CMakeFiles/OS_P1.dir/src/tester.cpp.obj: ../include/HDD.h
+CMakeFiles/OS_P1.dir/src/tester.cpp.obj: ../include/IScheduler.h
+CMakeFiles/OS_P1.dir/src/tester.cpp.obj: ../include/Loader.h
 CMakeFiles/OS_P1.dir/src/tester.cpp.obj: ../include/Motherboard.h
 CMakeFiles/OS_P1.dir/src/tester.cpp.obj: ../include/PCB.h
+CMakeFiles/OS_P1.dir/src/tester.cpp.obj: ../include/PriorityScheduler.h
 CMakeFiles/OS_P1.dir/src/tester.cpp.obj: ../include/ProcessPool.h
 CMakeFiles/OS_P1.dir/src/tester.cpp.obj: ../include/RAM.h
 CMakeFiles/OS_P1.dir/src/tester.cpp.obj: ../include/m32.h

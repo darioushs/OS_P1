@@ -11,7 +11,7 @@ Dispatcher::Dispatcher(RAM* Ram, HDD* Hdd, CPU* Cpu) {
 
 int Dispatcher::swapInProcess(PCB* pcb) {
     if (pcb == currentPcbInMemory) return currentPcbInMemory->PC;
-    int locationOnHDD = hdd->getProcessStartLocationOnDisk(pcb->Id);
+    int locationOnHDD = pcb->startPositionOnDisk;
     for (int i = locationOnHDD; i < pcb->codeSize + pcb->dataSize; i++) {
         ram->setMemory(i - locationOnHDD, hdd->getMemory(i).GetDecimal(0, 32));
     }

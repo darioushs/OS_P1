@@ -73,10 +73,16 @@ CMakeFiles/OS_P1.dir/src/IScheduler.cpp.obj
  ../include/m32.h
  C:/Users/somebody/Documents/GitHub/OS_P1/src/IScheduler.cpp
 CMakeFiles/OS_P1.dir/src/Loader.cpp.obj
+ ../include/ALU.h
+ ../include/CPU.h
+ ../include/CU.h
+ ../include/CpuMem.h
+ ../include/Dispatcher.h
  ../include/HDD.h
  ../include/IScheduler.h
  ../include/Loader.h
  ../include/PCB.h
+ ../include/PriorityScheduler.h
  ../include/ProcessPool.h
  ../include/RAM.h
  ../include/m32.h
@@ -128,9 +134,13 @@ CMakeFiles/OS_P1.dir/src/tester.cpp.obj
  ../include/CPU.h
  ../include/CU.h
  ../include/CpuMem.h
+ ../include/Dispatcher.h
  ../include/HDD.h
+ ../include/IScheduler.h
+ ../include/Loader.h
  ../include/Motherboard.h
  ../include/PCB.h
+ ../include/PriorityScheduler.h
  ../include/ProcessPool.h
  ../include/RAM.h
  ../include/m32.h

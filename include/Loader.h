@@ -5,6 +5,7 @@
 #include "HDD.h"
 #include "RAM.h"
 #include "IScheduler.h"
+#include "PriorityScheduler.h"
 
 #ifndef LOADER_H
 #define LOADER_H
@@ -20,7 +21,7 @@ private:
 	bool isWildCard(string input);
 
 public:
-    void Load(string filename, RAM* Ram, HDD* Disk, IScheduler* scheduler);
+    void Load(string filename, HDD* Disk, PriorityScheduler* scheduler);
 };
 
 

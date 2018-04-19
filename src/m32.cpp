@@ -51,10 +51,10 @@ m32 m32::operator=(const m32 other) {
 
 void m32::SetHex(int hex) {
     stringstream ss;
-    unsigned n;
+    int n;
     ss << hex;
     ss >> n;
-    bitset<32> b(n);
+    bitset<32> b(hex);
     memory = b;
     //cout << "binary is: " << b << endl;
 }

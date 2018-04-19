@@ -5,6 +5,7 @@
 		<Option title="Os" />
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
+		<Option virtualFolders="src\;include\;" />
 		<Build>
 			<Target title="Debug">
 				<Option output="bin/Debug/Os" prefix_auto="1" extension_auto="1" />
@@ -49,7 +50,9 @@
 		<Unit filename="include/ProcessPool.h" />
 		<Unit filename="include/ProcessQueue.h" />
 		<Unit filename="include/RAM.h" />
-		<Unit filename="include/m32.h" />
+		<Unit filename="include/m32.h">
+			<Option virtualFolder="include/" />
+		</Unit>
 		<Unit filename="src/ALU.cpp" />
 		<Unit filename="src/CPU.cpp" />
 		<Unit filename="src/CU.cpp" />

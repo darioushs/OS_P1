@@ -16,3 +16,10 @@ int ProcessPool::getProcessPosition(int PID) {
     }
     return -1;
 }
+
+void ProcessPool::printProcessPool() {
+    for (auto &i : segmentPool) {
+        i.pcb->display();
+        cout << "---------------------------------" << endl;
+    }
+}

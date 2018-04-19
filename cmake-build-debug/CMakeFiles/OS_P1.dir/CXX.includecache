@@ -93,6 +93,8 @@ RAM.h
 ../include/RAM.h
 IScheduler.h
 ../include/IScheduler.h
+PriorityScheduler.h
+../include/PriorityScheduler.h
 
 ../include/Motherboard.h
 CPU.h
@@ -277,4 +279,8 @@ CPU.h
 C:/Users/somebody/Documents/GitHub/OS_P1/src/CPU.h
 Motherboard.h
 C:/Users/somebody/Documents/GitHub/OS_P1/src/Motherboard.h
+Loader.h
+C:/Users/somebody/Documents/GitHub/OS_P1/src/Loader.h
+PriorityScheduler.h
+C:/Users/somebody/Documents/GitHub/OS_P1/src/PriorityScheduler.h
 

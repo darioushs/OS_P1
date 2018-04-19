@@ -24,6 +24,7 @@ public:
 
     int Id; // Process ID
     int PC; // Program Counter
+    int startPositionOnDisk; // Used for loading form disk
     int codeStartPosition; // Starting position of the code segment
     int codeSize;
     int dataSize;
@@ -42,6 +43,10 @@ public:
 	bool isInRam;
 
 	int getPID() { return Id; }
+
+	int getOutputBufferStart();
+	int getTempBufferStart();
+	void display();
 };
 
 #endif

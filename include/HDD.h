@@ -19,6 +19,7 @@ public:
 	void setMemory(int index, int value);
 	int getProcessStartLocationOnDisk(int PID);
 	void addProcessToPool(PCB* pcb, int position);
+	void printHDD();
 };
 
 #endif

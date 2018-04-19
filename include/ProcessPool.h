@@ -9,6 +9,7 @@ class ProcessPool
     public:
         void addProcess(PCB* pcb, int position);
         int getProcessPosition(int PID);
+        void printProcessPool();
 
     private:
         struct Segment {

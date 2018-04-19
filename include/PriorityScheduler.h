@@ -6,7 +6,7 @@
 #include "Dispatcher.h"
 
 
-class PriorityScheduler : public IScheduler {
+class PriorityScheduler {
 private:
     vector<PCB*> readyQueue;
     CPU* cpu;
@@ -19,6 +19,8 @@ public:
     void addPcb(PCB* pcb);
     int loadNextProcess(); // Return a program counter to tell CPU where to start executing code from
     void signalProcessEnd();
+    void printAllPcbs();
+    int getNumberOfPcbs();
 };
 
 

@@ -69,7 +69,11 @@ int ALU::OR(int sReg1, int sReg2, int dReg) {
 }
 
 int ALU::SLT(int sReg1, int sReg2, int dReg) {
-
+    if (sReg1 < sReg2) {
+        memory->set_general_purpose_register(dReg, 1);
+    } else {
+        memory->set_general_purpose_register(dReg, 0);
+    }
 }
 
 int ALU::ADDI(int dReg, int data) {

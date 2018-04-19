@@ -29,3 +29,9 @@ int HDD::getProcessStartLocationOnDisk(int PID) {
 void HDD::addProcessToPool(PCB* pcb, int position) {
     processPool.addProcess(pcb, position);
 }
+
+void HDD::printHDD() {
+    for (int i = 0; i < 2047; i++) {
+        cout << i << "----" << memory[i].ToString() << endl;
+    }
+}

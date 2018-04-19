@@ -10,16 +10,24 @@ using namespace std;
 
 void Loader::addJob(string jobControlCard, PCB* inputPCB)
 {
-    inputPCB->Id =  stoi(jobControlCard.substr(7,jobControlCard.find(delimterPosition)));
-	inputPCB->codeSize = stoi(jobControlCard.substr(9, jobControlCard.find(delimterPosition)));
-    inputPCB->priority = stoi(jobControlCard.substr(12));
+    try {
+        inputPCB->Id = stoi(jobControlCard.substr(7, jobControlCard.find(static_cast<char>(delimterPosition))), 0, 16);
+        inputPCB->codeSize = stoi(jobControlCard.substr(9, jobControlCard.find(static_cast<char>(delimterPosition))), 0 , 16);
+        inputPCB->priority = stoi(jobControlCard.substr(12), 0, 16);
+    } catch (invalid_argument ex) {
+        cout << "Error " << ex.what() << " in " << jobControlCard << endl;
+    } catch (exception ex) {
+        cout << ex.what() << endl;
+    }
 }
 
 void Loader::addData(string dataControlCard, PCB* inputPCB)
 {
 	inputPCB->inputBuffer = stoi(dataControlCard.substr(8, dataControlCard.find(delimterPosition)));
-	inputPCB->outputBufferSize = stoi(dataControlCard.substr(11, dataControlCard.find(delimterPosition)));
-	inputPCB->tempBufferSize = stoi(dataControlCard.substr(12));
+	//inputPCB->outputBufferSize = stoi(dataControlCard.substr(11, dataControlCard.find(delimterPosition)));
+	inputPCB->outputBufferSize = 12; // Always set to 12
+	inputPCB->tempBufferSize = 12; // Always set to 12
+	//inputPCB->tempBufferSize = stoi(dataControlCard.substr(12));
 }
 
 bool Loader::isWildCard(string input) {
@@ -59,36 +67,50 @@ bool isEndCard(string input) {
     }
 }*/
 
-void Loader::Load(string filename, RAM* Ram, HDD* Disk, IScheduler* scheduler) {
+void Loader::Load(string filename, HDD* Disk, PriorityScheduler* scheduler) {
     ifstream file(filename);
     string str;
-	PCB* newPcb = nullptr;
-	string currentReading = "JOB";
-	int codeSize = 0;
-	int dataSize = 0;
-	int currentMemLocation = 0;
-	int lastJobEndLocation = 0;
+    PCB *newPcb = nullptr;
+    string currentReading = "JOB";
+    int codeSize = 0;
+    int dataSize = 0;
+    int currentMemLocation = 0;
+    int lastJobEndLocation = 0;
     while (std::getline(file, str)) {
-		if (isWildCard(str)) {
-			string wildCard = str.substr(3, 3);
-			if (wildCard == "JOB") {
-				newPcb = new PCB();
-				Disk->addProcessToPool(newPcb, lastJobEndLocation);
-				addJob(str, newPcb);
-			} else if (wildCard == "DAT") {
-				newPcb->codeSize = codeSize;
-				currentReading = "DATA";
-			} else if (wildCard == "END") {
-				newPcb->dataSize = dataSize;
-				lastJobEndLocation = currentMemLocation;
-				currentReading = "JOB";
-			}
-		} else {
-			Disk->getMemory(currentMemLocation).SetHex(stoi(str));
-			if (currentReading == "JOB") codeSize++;
-			if (currentReading == "DAT") dataSize++;
-			currentMemLocation++;
-		}
+        if (isWildCard(str)) {
+            string wildCard = str.substr(3, 3);
+            if (wildCard == "JOB") {
+                newPcb = new PCB();
+                Disk->addProcessToPool(newPcb, lastJobEndLocation);
+                newPcb->startPositionOnDisk = lastJobEndLocation; // We put all the pcb's directly into the ready queue
+                scheduler->addPcb(newPcb);
+                addJob(str, newPcb);
+                currentReading = "JOB";
+            } else if (wildCard == "Dat") {
+                currentReading = "Dat";
+                addData(str, newPcb);
+            } else if (wildCard == "END") {
+                newPcb->dataSize = dataSize;
+                newPcb->codeSize = codeSize;
+                lastJobEndLocation = currentMemLocation;
+                codeSize = 0;
+                dataSize = 0;
+            }
+        } else {
+            int newEntry;
+            if (str == "") return;
+            try {
+                //cout << str << " Becomes " << str.substr(2, string::npos) << endl;
+                newEntry = stoi(str.substr(3, string::npos), nullptr, 16);
+                Disk->setMemory(currentMemLocation, newEntry);
+            } catch (invalid_argument ex) {
+                cout << "ERROR: " << ex.what() << " In " << str << endl;
+            }
+
+            if (currentReading == "JOB") codeSize++;
+            if (currentReading == "Dat") dataSize++;
+            currentMemLocation++;
+        }
     }
 }
 

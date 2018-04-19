@@ -1,11 +1,11 @@
 #include "PriorityScheduler.h"
 #include "PCB.h"
 
-PriorityScheduler::PriorityScheduler() : IScheduler() {
+PriorityScheduler::PriorityScheduler() {
 
 }
 
-PriorityScheduler::PriorityScheduler(RAM* ram, HDD* hdd, CPU* Cpu): IScheduler() {
+PriorityScheduler::PriorityScheduler(RAM* ram, HDD* hdd, CPU* Cpu) {
     cpu = Cpu;
     dispatcher.setHdd(hdd);
     dispatcher.setRam(ram);
@@ -83,6 +83,17 @@ int PriorityScheduler::loadNextProcess() {
 
 void PriorityScheduler::signalProcessEnd() {
 
+}
+
+void PriorityScheduler::printAllPcbs() {
+    for (auto &i : readyQueue) {
+        i->display();
+        cout << "---------------------------------" << endl;
+    }
+}
+
+int PriorityScheduler::getNumberOfPcbs() {
+    return readyQueue.size();
 }
 
 

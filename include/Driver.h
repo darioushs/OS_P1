@@ -8,14 +8,14 @@
 class Driver
 {
 private:
-    Motherboard motherboard;
+    Motherboard* motherboard;
     Loader loader;
-    IScheduler* Scheduler;
+    PriorityScheduler* Scheduler;
 
 
 public:
-    Driver(IScheduler* Scheduler);
-    void boot();
+    Driver(PriorityScheduler* Scheduler, Motherboard* mb);
+    void bootFromFile(string filename);
 
 };
 
