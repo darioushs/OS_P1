@@ -33,7 +33,7 @@ void CU::resolveArithmetic(m32 instruction)
             operationResult = alu->DIV(s1Reg, s2Reg, dReg);
             break;
         case OPCODES::MOV:
-            operationResult = alu->MOV(s1Reg, dReg);
+            operationResult = alu->MOV(s1Reg,s2Reg, dReg);
             break;
         case OPCODES::SLT:   //Load content of address into reg
             operationResult = alu->SLT(s1Reg, s2Reg, dReg);

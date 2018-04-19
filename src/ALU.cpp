@@ -43,8 +43,16 @@ int ALU::DIV(int sReg1, int sReg2, int dReg) {
     return 1;
 }
 
-int ALU::MOV(int sReg, int dReg) {
-    memory->set_general_purpose_register(dReg, memory->get_general_purpose_register(sReg));
+int ALU::MOV(int sReg1, int sReg2, int dReg) {
+    if (sReg1 != 0 && dReg == 0)
+    {
+        memory->set_general_purpose_register(sReg1, memory->get_general_purpose_register(sReg2));
+    }
+    else if (sReg1 == 0 && dReg != 0)
+    {
+        memory->set_general_purpose_register(sReg2, memory->get_general_purpose_register(sReg2));
+    }
+    memory->set_general_purpose_register(sReg2, memory->get_general_purpose_register(sReg2));
     return 1;
 }
 

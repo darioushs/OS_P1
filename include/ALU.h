@@ -25,7 +25,7 @@ public:
     int SUB(int sReg1, int sReg2, int dReg);
     int MUL(int sReg1, int sReg2, int dReg);
     int DIV(int sReg1, int sReg2, int dReg);
-    int MOV(int sReg, int dReg);
+    int MOV(int sReg1, int sReg2, int dReg);
     int AND(int sReg1, int sReg2, int dReg);
     int OR (int sReg1, int sReg2, int dReg);
     int SLT (int sReg1, int sReg2, int dReg); //todo
