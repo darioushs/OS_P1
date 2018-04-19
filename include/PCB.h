@@ -26,8 +26,8 @@ public:
     int PC; // Program Counter
     int startPositionOnDisk; // Used for loading form disk
     int codeStartPosition; // Starting position of the code segment
-    int codeSize;
-    int dataSize;
+    int codeSize = 0;
+    int dataSize = 0;
     ProcessStates state;
     int priority;
     int inputBuffer; // The input buffer register for this process

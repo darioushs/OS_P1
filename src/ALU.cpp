@@ -6,12 +6,14 @@ ALU::ALU() {
 
 }
 
-int ALU::RD(int tReg1, int tReg2, int tAddr) {
-
+int ALU::RD(int tAddr) {
+    //Reads content of I/P buffer into a accumulator
+    memory->set_general_purpose_register(0, memory->get_general_purpose_register(tAddr));
 }
 
-int ALU::WR(int tReg1, int tReg2, int tAddr) {
-
+int ALU::WR(int tAddr) {
+    //Writes the content of accumulator into O/P buffer
+    memory->set_general_purpose_register(tAddr, memory->get_general_purpose_register(0));
 }
 
 

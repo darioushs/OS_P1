@@ -6,6 +6,11 @@
 
 using namespace std;
 
+unsigned long hexchar_to_int(char c) {
+  char chars[2] = {c, '\0'};
+  return strtoul(chars, NULL, 16);
+}
+
 m32 m32::operator+ (m32 other) {
     // TODO: Due for optimization
     int num1 = GetDecimal(0, 31);
@@ -54,7 +59,7 @@ void m32::SetHex(int hex) {
     int n;
     ss << hex;
     ss >> n;
-    bitset<32> b(hex);
+    bitset<32> b(n);
     memory = b;
     //cout << "binary is: " << b << endl;
 }

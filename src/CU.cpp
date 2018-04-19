@@ -68,11 +68,9 @@ void CU::resolveConditional(m32 instruction) {
             operationResult = alu->ADDI(dReg, dataDecimal);
             break;
         case ST:    //Stores content of reg into address
-            //setAddress(CpuMem.get_general_purpose_register(bReg), address);
             operationResult = alu->ST(dReg, dataDecimal);
             break;
         case LW:    //Load content of address into reg
-            //ALUsetRegister(bReg, dataDecimal);
             operationResult = alu->LW(dataDecimal, bReg);
             break;
         case MULI:  //Multiplies data value directly with content of register
@@ -82,14 +80,9 @@ void CU::resolveConditional(m32 instruction) {
             operationResult = alu->DIVI(dReg, dataDecimal);
             break;
         case LDI:
-            //ALU.setRegister(bReg, dataDecimal);
             operationResult = alu->LDI(dReg, dataDecimal);
             break;
         case SLTI:
-            //if(bReg < data)
-            //dReg = 1;
-            //else
-            //dReg = 0;
             operationResult = alu->SLTI(bReg, dReg, dataDecimal);
             break;
         case BEQ:
@@ -123,13 +116,10 @@ void CU::resolveIO(m32 instruction) {
 
     switch (Opcode) {
         case RD:    //Input buffer written to accumulator
-            //ALU.setRegister(0, data);
-            operationResult = alu->RD(reg1, reg2, data);
+            operationResult = alu->RD(data);
             break;
         case WR:
-            //Accumulator written to output buffer
-            //outputBuffer = CpuMem.get_general_purpose_register(0);
-            operationResult = alu->WR(reg1, reg2, data);
+            operationResult = alu->WR(data);
             break;
         default:
             cout << "Unrecognized OPCODE" << endl;

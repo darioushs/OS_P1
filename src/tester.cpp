@@ -125,5 +125,6 @@ int main() {
     //test_alu_DIVI();
     //test_alu_DIVI();
 //976f6284f30efe88d12b358c616623f5405670cb
-    test_loader();
+    //test_loader();
+    test_driver();
 }

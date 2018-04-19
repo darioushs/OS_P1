@@ -23,4 +23,5 @@ void PCB::display() {
     cout << "Temp buffer size: " << tempBufferSize << endl;
     cout << "Output buffer start: " << getOutputBufferStart() << endl;
     cout << "Temp buffer start: " << getTempBufferStart() << endl;
+    cout << "Priority: " << priority << endl;
 }

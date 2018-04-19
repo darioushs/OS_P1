@@ -100,10 +100,11 @@ void Loader::Load(string filename, HDD* Disk, PriorityScheduler* scheduler) {
             int newEntry;
             if (str == "") return;
             try {
-                //cout << str << " Becomes " << str.substr(2, string::npos) << endl;
-                newEntry = stoi(str.substr(3, string::npos), nullptr, 16);
+                newEntry = stoi(str.substr(2, string::npos), nullptr, 16);
                 Disk->setMemory(currentMemLocation, newEntry);
             } catch (invalid_argument ex) {
+                cout << "ERROR: " << ex.what() << " In " << str << endl;
+            } catch (out_of_range ex) {
                 cout << "ERROR: " << ex.what() << " In " << str << endl;
             }
 

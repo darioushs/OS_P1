@@ -53,14 +53,15 @@ void PriorityScheduler::addPCB(PCB* pcb) {
 */
 
 int PriorityScheduler::getHighestPriorityProcessIndex() {
+    cout << "SIZE: " << readyQueue.size() << endl;
     int currentHighestIndex = -1;
     int currentHighestPriority = -1;
-    for (int i = 0; i <= readyQueue.size(); i++) {
-        if (readyQueue[i]->state == PCB::ProcessStates::Ready) { // If process state is ready
+    for (int i = 0; i < readyQueue.size(); i++) {
+        //if (readyQueue[i].state == PCB::ProcessStates::Ready) { // If process state is ready
             if (readyQueue[i]->priority > currentHighestPriority) { // If it has the highest priority
                 currentHighestIndex = i;
             }
-        }
+        //}
     }
     return currentHighestIndex;
 }
@@ -73,6 +74,7 @@ int PriorityScheduler::loadNextProcess() {
     int highestPriorityProcess;
     highestPriorityProcess = getHighestPriorityProcessIndex();
     PCB* processToLoad = readyQueue[highestPriorityProcess];
+    cout << "highest priority = " << readyQueue[highestPriorityProcess]->Id << endl;
     if (processToLoad->PC == processToLoad->codeSize) { // If the process is finished, removed it from the ready queue and call this function again
         readyQueue.erase(readyQueue.begin() + highestPriorityProcess);
         return loadNextProcess();

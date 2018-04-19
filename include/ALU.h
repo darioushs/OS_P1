@@ -16,8 +16,8 @@ public:
     }
 
     // I/O Instructions
-    int RD(int tReg1, int tReg2, int tAddr);
-    int WR(int tReg1, int tReg2, int tAddr);
+    int RD(int tAddr);
+    int WR(int tAddr);
 
 
     // Arhitmetic Instructions
@@ -56,6 +56,7 @@ public:
 
     // No operation
     int NOP();
+
 
     void setRegister(int registerNumber, int value);
     CpuMem* getMemory() { return memory; } // For testing
