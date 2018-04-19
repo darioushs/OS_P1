@@ -33,9 +33,10 @@ void CU::resolveArithmetic(m32 instruction)
             operationResult = alu->DIV(s1Reg, s2Reg, dReg);
             break;
         case OPCODES::MOV:
-            operationResult = alu->MOV(s1Reg, dReg);
+            operationResult = alu->MOV(s1Reg,s2Reg, dReg);
             break;
         case OPCODES::SLT:   //Load content of address into reg
+            operationResult = alu->SLT(s1Reg, s2Reg, dReg);
             break;
         case OPCODES::AND:
             operationResult = alu->AND(s1Reg, s2Reg, dReg);
@@ -53,33 +54,43 @@ void CU::resolveConditional(m32 instruction) {
     int dataDecimal = instruction.GetDecimal(0, 15);
     m32 data(dataDecimal);
     OPCODES Opcode = getOpCode(instruction);
+
     switch (Opcode) {
         case MOVI:  //Transfers address/data directly into register
-            operationResult = alu->MOVI(bReg, dataDecimal);
+            if(dataDecimal == 0) {
+                operationResult = alu->MOVI(dReg, bReg);
+            }
+            else {
+                operationResult = alu->MOVI(dReg, dataDecimal);
+            }
             break;
         case ADDI:  //Add data value directly with content of register
-            operationResult = alu->ADDI(bReg, dataDecimal);
+            operationResult = alu->ADDI(dReg, dataDecimal);
             break;
         case ST:    //Stores content of reg into address
             //setAddress(CpuMem.get_general_purpose_register(bReg), address);
+            operationResult = alu->ST(dReg, dataDecimal);
             break;
         case LW:    //Load content of address into reg
             //ALUsetRegister(bReg, dataDecimal);
+            operationResult = alu->LW(dataDecimal, bReg);
             break;
         case MULI:  //Multiplies data value directly with content of register
-            operationResult = alu->MULI(bReg, dataDecimal);
+            operationResult = alu->MULI(dReg, dataDecimal);
             break;
         case DIVI:  //Divides data value directly with content of register
-            operationResult = alu->DIVI(bReg, dataDecimal);
+            operationResult = alu->DIVI(dReg, dataDecimal);
             break;
         case LDI:
             //ALU.setRegister(bReg, dataDecimal);
+            operationResult = alu->LDI(dReg, dataDecimal);
             break;
         case SLTI:
             //if(bReg < data)
             //dReg = 1;
             //else
             //dReg = 0;
+            operationResult = alu->SLTI(bReg, dReg, dataDecimal);
             break;
         case BEQ:
             operationResult = alu->BEQ(bReg, dReg, dataDecimal);
@@ -113,10 +124,12 @@ void CU::resolveIO(m32 instruction) {
     switch (Opcode) {
         case RD:    //Input buffer written to accumulator
             //ALU.setRegister(0, data);
+            operationResult = alu->RD(reg1, reg2, data);
             break;
         case WR:
             //Accumulator written to output buffer
             //outputBuffer = CpuMem.get_general_purpose_register(0);
+            operationResult = alu->WR(reg1, reg2, data);
             break;
         default:
             cout << "Unrecognized OPCODE" << endl;
@@ -174,20 +187,20 @@ void CU::decode(m32 instruction)
     if (instructionType == CU::InstructionTypes::Arithmetic)
     {
         resolveArithmetic(instruction);
-        //cout << "Arithmetic" << endl;
+        cout << "Arithmetic" << endl;
     }
     else if (instructionType == CU::InstructionTypes::Conditional)
     {
         resolveConditional(instruction);
-        //cout << "Conditional" << endl;
+        cout << "Conditional" << endl;
     }
     else if (instructionType == CU::InstructionTypes::IO)
     {
-        //cout << "IO" << endl;
+        cout << "IO" << endl;
     }
     else if (instructionType == CU::InstructionTypes::Unconditional)
     {
         resolveUnConditional(instruction);
-        //cout << "Unconditional Love!! " << endl;
+        cout << "Unconditional Love!! " << endl;
     }
 }

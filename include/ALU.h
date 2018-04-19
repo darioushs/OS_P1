@@ -14,15 +14,30 @@ public:
         ram = Ram;
         std::cout << memory << endl;
     }
+
+    // I/O Instructions
+    int RD(int tReg1, int tReg2, int tAddr);
+    int WR(int tReg1, int tReg2, int tAddr);
+
+
     // Arhitmetic Instructions
     int ADD(int sReg1, int sReg2, int dReg);
     int SUB(int sReg1, int sReg2, int dReg);
     int MUL(int sReg1, int sReg2, int dReg);
     int DIV(int sReg1, int sReg2, int dReg);
-    int MOV(int sReg, int dReg);
+    int MOV(int sReg1, int sReg2, int dReg);
     int AND(int sReg1, int sReg2, int dReg);
     int OR (int sReg1, int sReg2, int dReg);
+    int SLT (int sReg1, int sReg2, int dReg); //todo
 
+    // Immediate & Conditional Instructions
+    int MOVI(int dReg, int data);
+    int ADDI(int dReg, int data);
+    int MULI(int dReg, int data);
+    int DIVI(int dReg, int data);
+    //todo
+    int LDI(int dReg, int data);
+    //todo
     // Conditional Instructions
     int BEQ(int bReg, int dReg, int jmpTo);
     int BNE(int bReg, int dReg, int jmpTo);
@@ -30,19 +45,17 @@ public:
     int BNZ(int bReg, int jmpTo);
     int BGZ(int bReg, int jmpTo);
     int BLZ(int bReg, int jmpTo);
+    int SLTI(int bReg, int dReg, int data);
 
-    // Immediate & Unconditional Instructions
-    int MOVI(int sReg, int data);
-    int ADDI(int sReg, int data);
-    int MULI(int sReg, int data);
-    int DIVI(int sReg, int data);
-    int ST(int sReg, int memLocation);
-    int LD(int memLocation, int sReg);
+    int ST(int dReg, int memLocation); // ?
+    int LW(int memLocation, int sReg); // ?
 
-    // Conditional jump
+    // Unconditional jump
     int JMP(int address);
     int HLT();
 
+    // No operation
+    int NOP();
 
     void setRegister(int registerNumber, int value);
     CpuMem* getMemory() { return memory; } // For testing
