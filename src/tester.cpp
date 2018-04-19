@@ -96,4 +96,5 @@ int main() {
     //test_alu_ADDI();
     //test_alu_MULI();
     test_alu_DIVI();
+    printRam();
 }
